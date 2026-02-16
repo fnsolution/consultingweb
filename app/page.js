@@ -5,6 +5,7 @@ import QuickService from "@/components/home/QuickService";
 import ExpertSlide from "@/components/home/ExpertSlide";
 import HeroSection from "@/components/home/HeroSection";
 import PartnerLogos from "@/components/home/PartnerLogos";
+import BranchIntro from "@/components/home/BranchIntro";
 
 
 export default function Home() {
@@ -19,6 +20,7 @@ export default function Home() {
       <StatsBoard />
       <QuickService />
       <ExpertSlide />
+      <BranchIntro />
 
 
     </div>
