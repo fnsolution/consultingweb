@@ -47,7 +47,7 @@ export default function HeroSection() {
                </h1>
 
                {/* Korean Tagline */}
-               <div className="text-2xl md:text-3xl lg:text-4xl font-medium mb-10 space-y-2">
+               <div className="text-2xl md:text-3xl lg:text-4xl font-medium mb-8 space-y-2">
                   <p>비즈니스 컨설팅 | 해외 진출 | 서비스 개발 | 리더십</p>
                </div>
 

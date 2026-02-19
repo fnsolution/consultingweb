@@ -7,18 +7,19 @@ import { Menu, X, Linkedin, Facebook, Youtube, Instagram, Twitter } from "lucide
 export default function MainLayout({ children }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
-  const isHomePage = pathname === "/";
+  const isHomePage = pathname === "/" || pathname === "/company" || pathname === "/contact" || pathname === "/news" || pathname === "/company/team";
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   // Navbar styles based on route
+  // Navbar styles based on route
   const headerClass = isHomePage 
     ? "fixed top-0 w-full z-50 bg-gradient-to-b from-black/80 to-transparent transition-all duration-300"
-    : "sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100";
+    : "sticky top-0 z-50 bg-black text-white border-b border-white/10";
     
-  // On homepage, we want white text. On others, dark text.
-  const logoColorClass = isHomePage ? "text-white" : "text-primary";
-  const mobileMenuBg = isHomePage ? "bg-black/90 backdrop-blur-xl" : "bg-white";
+  // Navbar is always dark theme now (either transparent-dark or solid-black)
+  const logoColorClass = "text-white";
+  const mobileMenuBg = "bg-black/90 backdrop-blur-xl";
 
   return (
     <div className="min-h-screen flex flex-col font-sans">
@@ -29,7 +30,7 @@ export default function MainLayout({ children }) {
             <div className="flex-shrink-0 flex items-center">
               <Link href="/" className="flex items-center gap-2">
                  <img
-                   src={isHomePage ? "/logo-light.png" : "http://fnsolution.co.kr/wp-content/uploads/2020/01/logo1.png"}
+                   src="/logo-light.png"
                    alt="FnSolution"
                    className="h-10 md:h-12 w-auto object-contain transition-all duration-300"
                  />
@@ -38,7 +39,30 @@ export default function MainLayout({ children }) {
 
             {/* Desktop Navigation - Duarte Style */}
             <nav className="hidden md:flex items-center space-x-12">
-              <NavLink href="/company" label="About Us" title="COMPANY" isHomePage={isHomePage} />
+              
+              {/* Company Dropdown */}
+              <div 
+                className="relative group h-full flex items-center"
+                onMouseEnter={() => setIsMenuOpen(true)}
+                onMouseLeave={() => setIsMenuOpen(false)}
+              >
+                <NavLink href="/company" label="About Us" title="COMPANY" isHomePage={isHomePage} />
+                
+                {/* Dropdown Menu */}
+                <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 w-48 hidden group-hover:block">
+                  <div className="bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden py-2">
+                    <Link href="/company" className="block px-6 py-3 text-gray-700 hover:bg-gray-100 transition-colors">
+                      <span className="block text-sm font-bold">About Us</span>
+                      <span className="block text-xs text-gray-500">Vision & Philosophy</span>
+                    </Link>
+                    <Link href="/company/team" className="block px-6 py-3 text-gray-700 hover:bg-gray-100 transition-colors">
+                      <span className="block text-sm font-bold">Our Team</span>
+                      <span className="block text-xs text-gray-500">Professionals</span>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+
               <div className={`h-10 w-px ${isHomePage ? 'bg-white/20' : 'bg-gray-200'}`}></div>
               
               {/* Consulting Dropdown */}
@@ -78,7 +102,7 @@ export default function MainLayout({ children }) {
             <div className="md:hidden">
               <button
                 onClick={toggleMenu}
-                className={`${isHomePage ? "text-white" : "text-gray-700"} hover:text-primary focus:outline-none`}
+                className="text-white hover:text-primary focus:outline-none"
               >
                 {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
               </button>
@@ -110,46 +134,45 @@ export default function MainLayout({ children }) {
         {children}
       </main>
 
-      <footer className="bg-white border-t border-gray-100 py-16 text-black">
+      <footer className="bg-black border-t border-white/10 py-12 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Top Row: Brand & Socials */}
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-24 md:mb-32">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12">
              {/* Logo */}
              <div>
-               <h3 className="text-2xl font-bold tracking-tight uppercase">FnSolution</h3>
+               <h3 className="text-2xl font-bold tracking-tight uppercase text-white">FnSolution</h3>
              </div>
              
              {/* Social & Util */}
-             <div className="flex items-center gap-6 mt-6 md:mt-0 text-gray-900">
-                <a href="#" className="hover:text-gray-500 transition-colors"><Linkedin size={20} /></a>
-                <a href="#" className="hover:text-gray-500 transition-colors"><Twitter size={20} /></a>
-                <a href="#" className="hover:text-gray-500 transition-colors"><Facebook size={20} /></a>
-                <a href="#" className="hover:text-gray-500 transition-colors"><Youtube size={20} /></a>
-                <a href="#" className="hover:text-gray-500 transition-colors"><Instagram size={20} /></a>
+             <div className="flex items-center gap-6 mt-6 md:mt-0 text-white/70">
+                <a href="#" className="hover:text-white transition-colors"><Linkedin size={20} /></a>
+                <a href="#" className="hover:text-white transition-colors"><Twitter size={20} /></a>
+                <a href="#" className="hover:text-white transition-colors"><Facebook size={20} /></a>
+                <a href="#" className="hover:text-white transition-colors"><Youtube size={20} /></a>
+                <a href="#" className="hover:text-white transition-colors"><Instagram size={20} /></a>
              </div>
           </div>
 
-          {/* Bottom Row: Navigation Links & Copyright */}
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8 pt-8">
+          {/* Bottom Row: Company Info & Links */}
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8 pt-8 px-0 border-t border-white/10">
              
-             {/* Links */}
-             <div className="flex flex-wrap gap-x-8 gap-y-3 text-sm font-bold text-gray-900">
-                <Link href="/contact" className="hover:text-gray-500 transition-colors">Contact us</Link>
-                <Link href="#" className="hover:text-gray-500 transition-colors">Sustainability</Link>
-                <Link href="#" className="hover:text-gray-500 transition-colors">Accessibility</Link>
-                <Link href="#" className="hover:text-gray-500 transition-colors">Terms of use</Link>
-                <Link href="#" className="hover:text-gray-500 transition-colors">Privacy</Link>
-                <Link href="#" className="hover:text-gray-500 transition-colors">Modern Slavery Act Statement</Link>
-                <Link href="#" className="hover:text-gray-500 transition-colors">Cookie Policy</Link>
-                <Link href="#" className="hover:text-gray-500 transition-colors">Sitemap</Link>
-                <Link href="#" className="hover:text-gray-500 transition-colors">Log In</Link>
+             {/* Left: Info & Copyright */}
+             <div className="space-y-4">
+                <div className="flex gap-4 text-xs font-bold text-gray-300">
+                    <Link href="#" className="hover:text-white transition-colors">개인정보처리방침</Link>
+                    <span className="text-white/20">|</span>
+                    <Link href="#" className="hover:text-white transition-colors">이메일무단수집거부</Link>
+                </div>
+
+                <div className="text-xs text-white/50 space-y-1.5 leading-relaxed font-light">
+                    <p className="font-bold text-white/80">(주) FN Solution <span className="mx-2 text-white/20">|</span> 대표이사 : 안태건</p>
+                    <p>주소 : 서울특별시 금천구 가산디지털1로 145 에이스하이엔드타워3차 903호 <span className="mx-2 text-white/20">|</span> 사업자번호 : 783-81-00424</p>
+                    <p>전화번호 : 02-6746-0143 <span className="mx-2 text-white/20">|</span> 팩스 : 02-6746-0190</p>
+                    <p className="pt-4 font-medium text-white/40">COPYRIGHTⒸ2020 by FN solution . ALL RIGHTS RESERVED</p>
+                </div>
              </div>
 
-             {/* Copyright */}
-             <div className="text-xs text-gray-500 font-medium">
-                &copy; 1996-{new Date().getFullYear()} FnSolution Consulting, Inc.
-             </div>
           </div>
 
         </div>
@@ -159,10 +182,10 @@ export default function MainLayout({ children }) {
 }
 
 function NavLink({ href, label, title, isHomePage }) {
-  // Determine colors based on homepage state
-  const labelColor = isHomePage ? "text-gray-300" : "text-gray-500";
-  const titleColor = isHomePage ? "text-white" : "text-gray-900";
-  const hoverColor = isHomePage ? "group-hover:text-white" : "group-hover:text-accent";
+  // Always light text for dark navbar
+  const labelColor = "text-gray-400";
+  const titleColor = "text-white";
+  const hoverColor = "group-hover:text-white";
 
   return (
     <Link 
