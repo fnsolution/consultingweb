@@ -6,22 +6,22 @@ import { motion } from "framer-motion";
 export default function QuickService() {
   const services = [
     {
-      title: ["MANAGEMENT", "STRATEGY"],
-      sub: "중소기업지원 & 인증",
+      title: ["FOUNDATION", "& SYSTEM"],
+      sub: "기업 인증 및 운영 시스템 구축",
       href: "/service?category=0",
       image: "https://eoncg0801.mycafe24.com/wp-content/uploads/2025/02/stragy.png",
       span: "lg:row-span-2 lg:col-span-1", // Large Left Block
     },
     {
-      title: ["ORGANIZATION & HR"],
-      sub: "기업재무 & 자산관리",
+      title: ["STRATEGY & FUNDING"],
+      sub: "기업 성장 및 자본 조달 전략",
       href: "/service?category=1",
       image: "https://eoncg0801.mycafe24.com/wp-content/uploads/2025/02/ORGANIZATION.png",
       span: "lg:col-span-1 lg:row-span-1", // Top Right
     },
     {
-      title: ["FINANCE & IT SW"],
-      sub: "개인자산관리 & 투자",
+      title: ["FINANCE & ASSETS"],
+      sub: "재무 최적화 및 자산 승계 관리",
       href: "/service?category=2",
       image: "https://eoncg0801.mycafe24.com/wp-content/uploads/2025/02/a_AdobeStock_301436805.jpeg",
       span: "lg:col-span-1 lg:row-span-1", // Bottom Right

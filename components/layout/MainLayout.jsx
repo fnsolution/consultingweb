@@ -141,7 +141,7 @@ export default function MainLayout({ children }) {
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12">
              {/* Logo */}
              <div>
-               <h3 className="text-2xl font-bold tracking-tight uppercase text-white">FnSolution</h3>
+               <h3 className="text-2xl font-bold tracking-tight uppercase text-white">FN solution</h3>
              </div>
              
              {/* Social & Util */}
@@ -166,10 +166,10 @@ export default function MainLayout({ children }) {
                 </div>
 
                 <div className="text-xs text-white/50 space-y-1.5 leading-relaxed font-light">
-                    <p className="font-bold text-white/80">(주) FN Solution <span className="mx-2 text-white/20">|</span> 대표이사 : 안태건</p>
+                    <p className="font-bold text-white/80">(주)에프앤솔루션 <span className="mx-2 text-white/20">|</span> 대표이사 : 안태건</p>
                     <p>주소 : 서울특별시 금천구 가산디지털1로 145 에이스하이엔드타워3차 903호 <span className="mx-2 text-white/20">|</span> 사업자번호 : 783-81-00424</p>
                     <p>전화번호 : 02-6746-0143 <span className="mx-2 text-white/20">|</span> 팩스 : 02-6746-0190</p>
-                    <p className="pt-4 font-medium text-white/40">COPYRIGHTⒸ2020 by FN solution . ALL RIGHTS RESERVED</p>
+                    <p className="pt-4 font-medium text-white/40">COPYRIGHTⒸ2020 by FN solution. ALL RIGHTS RESERVED</p>
                 </div>
              </div>
 

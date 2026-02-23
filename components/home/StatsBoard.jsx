@@ -4,28 +4,29 @@ import { motion, useInView, useSpring, useTransform, useScroll } from "framer-mo
 
 const stats = [
   { 
-    number: 20, 
+    number: 10, 
     label: "Years", 
     suffix: "+" 
   },
   { 
-    number: 2500, 
+    number: 200, 
     label: "Specialists", 
     suffix: "+" 
   },
   { 
-    number: 100000, 
+    number: 30000, 
     label: "Consulting", 
     suffix: "+" 
   },
 ];
 
 const historyData = [
-  { year: "2024", title: "Global Expansion", description: "Launched new branches in Southeast Asia, marking a significant milestone in our global strategy." },
-  { year: "2020", title: "Digital Transformation", description: "Integrated AI-driven analytics into our core consulting services for smarter decision making." },
-  { year: "2015", title: "Industry Leader", description: "Recognized as the top corporate consulting firm in the domestic market by major financial institutions." },
-  { year: "2010", title: "Service Diversification", description: "Expanded portfolio to include private wealth management and corporate tax solutions." },
-  { year: "2005", title: "FnSolution Founded", description: "Established with a vision to revolutionize the corporate financial consulting landscape." },
+  { year: "2025", title: "재무·경영 컨설팅 전문위원 1000명 배출", description: "지속적인 특화 교육과 인력 양성을 통해 체계적인 전문 컨설팅 네트워크를 전국 규모로 확장하며, 명실공히 대한민국 최고의 컨설팅 그룹으로 도약했습니다." },
+  { year: "2024", title: "안동지사, 부산지사 설립", description: "전국 각지에 핵심 네트워크 거점을 순차적으로 확보하며 기업별 맞춤형 밀착 컨설팅 라인을 견고하게 구축, 현장 중심의 서비스를 강화했습니다." },
+  { year: "2023", title: "전사적 디지털 전환 (DT)", description: "경영 분석 모델 및 내부 컨설팅 프로세스에 첨단 데이터 솔루션을 대거 도입하여, 복잡다단한 경영 리스크를 오차 없이 진단하는 디지털 워크플로우를 확립했습니다." },
+  { year: "2019", title: "BS사업부 및 중소기업지원센터 설립", description: "현장 일선에 있는 중소기업들의 실질적인 애로사항을 면밀히 분석하고 원스톱으로 지원할 수 있는 특화 센터를 출범하여, 동반 성장의 가치를 실현하고 있습니다." },
+  { year: "2017", title: "자사 브랜드 상표등록", description: "기업의 고유철학과 컨설팅 방법론을 결합한 브랜드 가치를 공식적으로 인정받고, 파트너사와 고객들에게 높은 전문성을 각인시키는 계기를 마련했습니다." },
+  { year: "2016", title: "금융보국의 이념으로 회사 설립", description: "'금융으로 국가와 국민에게 지대하게 기여한다'는 굳건한 사명감을 바탕으로, 기업들의 지속적인 생존과 성장을 위한 신개념 컨설팅을 제공하고자 첫발을 내디뎠습니다." },
 ];
 
 function Counter({ value, suffix }) {
@@ -92,7 +93,7 @@ export default function StatsBoard() {
             >
                <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-gray-900 leading-tight">
                  The beginning of <br />
-                 the FnSolution <br />
+                 the FN solution <br />
                  evolution.
                </h2>
             </motion.div>
@@ -174,23 +175,23 @@ export default function StatsBoard() {
                   transition={{ duration: 1.5 }}
                   className="w-full h-full"
                 >
-                   <img 
+                    <img 
                      src="/building.avif" 
-                     alt="FnSolution Building" 
-                     className="w-full h-full object-cover grayscale opacity-50"
+                     alt="FN solution Building" 
+                     className="w-full h-full object-cover grayscale opacity-70"
                    />
                 </motion.div>
-                {/* Darker Gradient Overlay for More Contrast */}
-                <div className="absolute inset-0 bg-gradient-to-b from-white/95 via-white/70 to-white/95"></div>
+                {/* Lighter Gradient Overlay for Better Image Visibility */}
+                <div className="absolute inset-0 bg-gradient-to-b from-white/95 via-white/60 to-white/95"></div>
             </div>
 
             <div className="relative z-10 max-w-7xl mx-auto">
                 <div className="text-center mb-20">
-                    <h3 className="text-3xl font-bold tracking-tight uppercase">History of FnSolution</h3>
+                    <h3 className="text-3xl font-bold tracking-tight uppercase">History of FN solution</h3>
                     <div className="w-12 h-1 bg-black mx-auto mt-6"></div>
                 </div>
 
-                <div className="relative max-w-4xl mx-auto">
+                <div className="relative max-w-5xl mx-auto">
                     {/* Vertical Center Line */}
                     <div className="absolute left-8 lg:left-1/2 top-0 bottom-0 w-px bg-gray-300 transform lg:-translate-x-1/2"></div>
 
@@ -201,22 +202,43 @@ export default function StatsBoard() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, margin: "-100px" }}
                             transition={{ duration: 0.8 }}
-                            className={`relative flex flex-col lg:flex-row items-center mb-24 last:mb-0 ${index % 2 === 0 ? 'lg:flex-row-reverse' : ''}`}
+                            className="relative flex flex-col lg:flex-row items-stretch justify-between mb-24 last:mb-0 w-full"
                         >
                             {/* Timeline Dot */}
-                            <div className="absolute left-8 lg:left-1/2 w-4 h-4 rounded-full bg-black border-4 border-white shadow-lg transform -translate-x-1/2 z-10"></div>
+                            <div className="absolute left-8 lg:left-1/2 w-4 h-4 rounded-full bg-black border-4 border-white shadow-lg transform -translate-x-1/2 mt-2 lg:mt-0 lg:top-1/2 lg:-translate-y-1/2 z-10"></div>
 
-                            {/* Content */}
-                            <div className="w-full lg:w-1/2 pl-24 lg:pl-0 lg:px-16 text-left">
-                               <div className={`flex flex-col ${index % 2 === 0 ? 'lg:items-start lg:text-left' : 'lg:items-end lg:text-right'}`}>
-                                   <span className="text-6xl font-bold text-gray-500 font-sans mb-4 tracking-tighter">{item.year}</span>
-                                   <h4 className="text-2xl font-bold text-black mb-3">{item.title}</h4>
-                                   <p className="text-gray-600 font-medium max-w-sm leading-relaxed">{item.description}</p>
-                               </div>
+                            {/* Mobile Layout (Visible only on small screens) */}
+                            <div className="lg:hidden w-full pl-24 flex flex-col pb-8 pt-1">
+                                <span className="text-5xl font-bold text-gray-800 font-sans mb-2 tracking-tighter block">{item.year}</span>
+                                <h4 className="text-xl font-bold text-black mb-3 break-keep">{item.title}</h4>
+                                {item.description && <p className="text-gray-800 text-sm font-medium leading-relaxed break-keep">{item.description}</p>}
+                            </div>
+
+                            {/* Desktop Left Content (Visible only on even indexes) */}
+                            <div className="hidden lg:flex w-[45%] pr-16 text-right flex-col items-end justify-center">
+                                {index % 2 === 0 && (
+                                    <>
+                                        <span className="text-6xl font-bold text-gray-800 font-sans mb-4 tracking-tighter block">{item.year}</span>
+                                        <h4 className="text-2xl font-bold text-black mb-3 break-keep">{item.title}</h4>
+                                        {item.description && <p className="text-gray-800 font-medium leading-relaxed break-keep">{item.description}</p>}
+                                    </>
+                                )}
                             </div>
                             
-                            {/* Empty side for layout balance */}
-                            <div className="hidden lg:block w-1/2"></div>
+                            {/* Desktop Center Gap (10% width) */}
+                            <div className="hidden lg:block lg:w-[10%] shrink-0"></div>
+
+                            {/* Desktop Right Content (Visible only on odd indexes) */}
+                            <div className="hidden lg:flex w-[45%] pl-16 text-left flex-col items-start justify-center">
+                                {index % 2 !== 0 && (
+                                    <>
+                                        <span className="text-6xl font-bold text-gray-800 font-sans mb-4 tracking-tighter block">{item.year}</span>
+                                        <h4 className="text-2xl font-bold text-black mb-3 break-keep">{item.title}</h4>
+                                        {item.description && <p className="text-gray-800 font-medium leading-relaxed break-keep">{item.description}</p>}
+                                    </>
+                                )}
+                            </div>
+                            
                         </motion.div>
                     ))}
                 </div>

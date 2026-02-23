@@ -12,28 +12,28 @@ const teamMembers = [
   },
   {
     name: "이민재",
-    role: "영업본부장",
+    role: "본사본부장",
     englishName: "Lee Min Jae",
     image: "/증명사진_이민재.png",
     desc: "탁월한 리더십과 금융 전문성 보유"
   },
   {
     name: "전재영",
-    role: "지점장",
+    role: "BS사업부장",
     englishName: "Jeon Jae Young",
     image: "/증명사진_전재영.png",
     desc: "고객 맞춤형 자산 관리 솔루션 제공"
   },
   {
     name: "장승호",
-    role: "지점장",
+    role: "서울지사장",
     englishName: "Jang Seung Ho",
     image: "/증명사진_장승호.png",
     desc: "심도 있는 재무 분석 및 컨설팅"
   },
   {
     name: "심현용",
-    role: "지점장",
+    role: "대구지사장",
     englishName: "Sim Hyun Yong",
     image: "/증명사진_심현용.png",
     desc: "신뢰를 바탕으로 한 지속적인 파트너십"

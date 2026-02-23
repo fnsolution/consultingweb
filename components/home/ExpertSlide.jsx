@@ -12,25 +12,25 @@ const experts = [
   {
     name: "이민재",
     englishName: "Lee Min Jae",
-    position: "영업본부장",
+    position: "본사본부장",
     image: "/증명사진_이민재.png",
   },
   {
     name: "전재영",
     englishName: "Jeon Jae Young",
-    position: "지점장",
+    position: "BS사업부장",
     image: "/증명사진_전재영.png",
   },
   {
     name: "장승호",
     englishName: "Jang Seung Ho",
-    position: "지점장",
+    position: "서울지사장",
     image: "/증명사진_장승호.png",
   },
   {
     name: "심현용",
     englishName: "Sim Hyun Yong",
-    position: "지점장",
+    position: "대구지사장",
     image: "/증명사진_심현용.png",
   }
 ];
@@ -89,7 +89,7 @@ export default function ExpertSlide() {
                   transition={{ duration: 0.8, ease: "easeOut" }}
                   className="absolute top-[5%] left-[-2%] z-0 select-none pointer-events-none"
                 >
-                  <span className="text-[120px] font-serif font-bold text-white/[0.03] leading-none">
+                  <span className="text-[120px] font-serif font-bold text-white/[0.2] leading-none">
                     {String(index + 1).padStart(2, '0')}
                   </span>
                 </motion.div>

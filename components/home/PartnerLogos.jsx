@@ -4,15 +4,16 @@ import Image from "next/image";
 
 export default function PartnerLogos() {
   const partners = [
-    { name: "교보생명", category: "Life" },
-    { name: "신한라이프", category: "Life" },
-    { name: "삼성생명", category: "Life" },
-    { name: "KB손해보험", category: "Non-Life" },
-    { name: "DB손해보험", category: "Non-Life" },
-    { name: "한화손해보험", category: "Non-Life" },
-    { name: "삼성화재", category: "Non-Life" },
-    { name: "현대해상", category: "Non-Life" },
-    { name: "메리츠화재", category: "Non-Life" },
+    { name: "메리츠화재", src: "/메리츠화재.svg" },
+    { name: "신한라이프", src: "/신한라이프.png" },
+    { name: "삼성생명", src: "/삼성생명.jpeg" },
+    { name: "KB손해보험", src: "/kb손해.jpg" },
+    { name: "DB손해보험", src: "/db손해.jpg" },
+    { name: "한화손해보험", src: "/한화손해.jpg" },
+    { name: "삼성화재", src: "/삼성화재.jpg" },
+    { name: "현대해상", src: "/현대해상.jpg" },
+    { name: "교보생명", src: "/교보생명.jpg" },
+
   ];
 
   return (
@@ -24,16 +25,18 @@ export default function PartnerLogos() {
           </h3>
         </div>
         
-        <div className="flex justify-center items-center py-8">
-          <div className="relative w-full max-w-6xl h-40 md:h-60 transition-transform duration-500 hover:scale-105">
-            <Image 
-              src="/logos.png" 
-              alt="Partner Logos" 
-              fill
-              sizes="(max-width: 768px) 100vw, 90vw"
-              className="object-contain"
-            />
-          </div>
+        <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12 py-8">
+          {partners.map((partner, index) => (
+            <div key={index} className="relative w-32 h-14 md:w-42 md:h-16 lg:w-44 lg:h-14">
+              <Image 
+                src={partner.src} 
+                alt={partner.name} 
+                fill
+                sizes="(max-width: 768px) 33vw, 20vw"
+                className="object-contain"
+              />
+            </div>
+          ))}
         </div>
       </div>
     </section>

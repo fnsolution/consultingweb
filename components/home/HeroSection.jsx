@@ -1,21 +1,65 @@
 "use client";
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
+import { db } from "@/lib/firebase";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 
 export default function HeroSection() {
-  const [email, setEmail] = useState("");
-  const [subscribed, setSubscribed] = useState(false);
+  const [formData, setFormData] = useState({
+    email: "",
+    companyName: "",
+    contact: "",
+    region: "",
+    industry: "",
+  });
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
 
-  const handleSubscribe = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (email) {
-      setSubscribed(true);
-      setTimeout(() => {
-        setEmail("");
-        setSubscribed(false);
-      }, 3000);
+    if (!isExpanded) {
+      if (formData.email) {
+        setIsExpanded(true);
+      }
+      return;
     }
+
+    try {
+      await addDoc(collection(db, "inquiries"), {
+        email: formData.email,
+        company: formData.companyName,
+        phone: formData.contact,
+        region: formData.region,
+        industry: formData.industry,
+        message: `[메인 홈 상담신청] 지역: ${formData.region} / 업종: ${formData.industry}`,
+        firstName: "메인홈",
+        lastName: "상담",
+        status: "new",
+        createdAt: serverTimestamp(),
+      });
+      
+      setSubmitted(true);
+      setTimeout(() => {
+        setSubmitted(false);
+        setIsExpanded(false);
+        setFormData({
+          email: "",
+          companyName: "",
+          contact: "",
+          region: "",
+          industry: "",
+        });
+      }, 3000);
+    } catch (error) {
+      console.error("오류 발생:", error);
+      alert("신청 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요.");
+    }
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   return (
@@ -41,14 +85,14 @@ export default function HeroSection() {
               transition={{ duration: 0.8, ease: "easeOut" }}
               className="text-white"
             >
-               {/* Company Name */}
-               <h1 className="text-5xl md:text-6xl lg:text-[76px] font-black mb-8 leading-tight">
-                  (주)에프엔솔루션
+               {/* Title */}
+               <h1 className="text-5xl md:text-6xl lg:text-[76px] font-black mb-8 leading-tight break-keep">
+                  금융보국(金融報國)
                </h1>
 
                {/* Korean Tagline */}
-               <div className="text-2xl md:text-3xl lg:text-4xl font-medium mb-8 space-y-2">
-                  <p>비즈니스 컨설팅 | 해외 진출 | 서비스 개발 | 리더십</p>
+               <div className="text-2xl md:text-3xl lg:text-4xl font-medium mb-8 space-y-2 break-keep">
+                  <p>'금융으로 국가와 국민에게 기여한다'</p>
                </div>
 
                {/* Slogan with Red Dot */}
@@ -57,7 +101,7 @@ export default function HeroSection() {
                </p>
             </motion.div>
 
-            {/* Right Side: Newsletter Subscription */}
+            {/* Right Side: Consultation Request */}
             <motion.div 
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
@@ -66,40 +110,103 @@ export default function HeroSection() {
             >
                <div className="w-full max-w-md">
                   <h3 className="text-white text-2xl md:text-3xl font-bold mb-8">
-                     Subscribe to our Mailing List
+                     상담 신청
                   </h3>
                   
-                  <form onSubmit={handleSubscribe} className="space-y-5">
+                  <form onSubmit={handleSubmit} className="space-y-4">
                      <div>
                         <label className="text-gray-400 text-base mb-2 block">
-                           Enter your email here *
+                           이메일을 입력해주세요 *
                         </label>
                         <input 
                            type="email"
-                           value={email}
-                           onChange={(e) => setEmail(e.target.value)}
+                           name="email"
+                           value={formData.email}
+                           onChange={handleChange}
                            placeholder="Email Address"
                            required
                            className="w-full bg-transparent border border-white/30 text-white text-lg px-5 py-4 focus:outline-none focus:border-white transition-colors"
                         />
                      </div>
 
-                     <div className="flex items-start gap-2 text-base text-gray-400">
+                     <AnimatePresence>
+                        {isExpanded && (
+                           <motion.div
+                              initial={{ height: 0, opacity: 0 }}
+                              animate={{ height: "auto", opacity: 1 }}
+                              exit={{ height: 0, opacity: 0 }}
+                              transition={{ duration: 0.4, ease: "easeInOut" }}
+                              className="overflow-hidden"
+                           >
+                              <div className="space-y-4 pt-1 pb-1">
+                                 <div>
+                                    <input 
+                                       type="text"
+                                       name="companyName"
+                                       value={formData.companyName}
+                                       onChange={handleChange}
+                                       placeholder="기업명 *"
+                                       required={isExpanded}
+                                       className="w-full bg-transparent border border-white/30 text-white text-lg px-5 py-3 focus:outline-none focus:border-white transition-colors"
+                                    />
+                                 </div>
+                                 <div className="grid grid-cols-2 gap-4">
+                                     <div>
+                                        <input 
+                                           type="text"
+                                           name="contact"
+                                           value={formData.contact}
+                                           onChange={handleChange}
+                                           placeholder="연락처 *"
+                                           required={isExpanded}
+                                           className="w-full bg-transparent border border-white/30 text-white text-lg px-5 py-3 focus:outline-none focus:border-white transition-colors"
+                                        />
+                                     </div>
+                                     <div>
+                                        <input 
+                                           type="text"
+                                           name="region"
+                                           value={formData.region}
+                                           onChange={handleChange}
+                                           placeholder="지역 *"
+                                           required={isExpanded}
+                                           className="w-full bg-transparent border border-white/30 text-white text-lg px-5 py-3 focus:outline-none focus:border-white transition-colors"
+                                        />
+                                     </div>
+                                 </div>
+                                 <div>
+                                    <input 
+                                       type="text"
+                                       name="industry"
+                                       value={formData.industry}
+                                       onChange={handleChange}
+                                       placeholder="업종 *"
+                                       required={isExpanded}
+                                       className="w-full bg-transparent border border-white/30 text-white text-lg px-5 py-3 focus:outline-none focus:border-white transition-colors"
+                                    />
+                                 </div>
+                              </div>
+                           </motion.div>
+                        )}
+                     </AnimatePresence>
+
+                     <div className="flex items-start gap-2 text-base text-gray-400 pt-2">
                         <input 
                            type="checkbox" 
-                           id="newsletter-consent"
+                           id="privacy-consent"
+                           required
                            className="mt-1"
                         />
-                        <label htmlFor="newsletter-consent">
-                           Yes, subscribe me to your newsletter.
+                        <label htmlFor="privacy-consent">
+                           개인정보 수집 및 이용에 동의합니다.
                         </label>
                      </div>
 
                      <button 
                         type="submit"
-                        className="bg-white text-black px-10 py-4 text-lg font-bold hover:bg-gray-200 transition-colors w-full sm:w-auto"
+                        className="bg-white text-black px-10 py-4 text-lg font-bold hover:bg-gray-200 transition-colors w-full sm:w-auto mt-2"
                      >
-                        {subscribed ? "Subscribed!" : "Subscribe"}
+                        {submitted ? "신청되었습니다!" : (isExpanded ? "제출하기" : "상담신청")}
                      </button>
                   </form>
                </div>

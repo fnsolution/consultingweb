@@ -86,7 +86,7 @@ export default function CompanyPage() {
                     </div>
 
                     <div className="pt-8 flex items-center gap-4 justify-center md:justify-start">
-                        <span className="text-sm text-gray-500 tracking-widest uppercase font-bold">FnSolution Co., Ltd.</span>
+                        <span className="text-sm text-gray-500 tracking-widest uppercase font-bold">FN solution Co., Ltd.</span>
                     </div>
                 </motion.div>
             </div>
