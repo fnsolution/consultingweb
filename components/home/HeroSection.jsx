@@ -92,7 +92,7 @@ export default function HeroSection() {
 
                {/* Korean Tagline */}
                <div className="text-2xl md:text-3xl lg:text-4xl font-medium mb-8 space-y-2 break-keep">
-                  <p>'금융으로 국가와 국민에게 기여한다'</p>
+                  <p>금융으로 국가와 국민에게 기여한다</p>
                </div>
 
                {/* Slogan with Red Dot */}

@@ -7,7 +7,7 @@ import { Menu, X, Linkedin, Facebook, Youtube, Instagram, Twitter } from "lucide
 export default function MainLayout({ children }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
-  const isHomePage = pathname === "/" || pathname === "/company" || pathname === "/contact" || pathname === "/news" || pathname === "/company/team";
+  const isHomePage = pathname === "/" || pathname === "/company" || pathname === "/contact" || pathname === "/news" || pathname === "/company/team" || pathname === "/consulting";
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
@@ -65,28 +65,27 @@ export default function MainLayout({ children }) {
 
               <div className={`h-10 w-px ${isHomePage ? 'bg-white/20' : 'bg-gray-200'}`}></div>
               
-              {/* Consulting Dropdown */}
               <div 
                 className="relative group h-full flex items-center"
                 onMouseEnter={() => setIsMenuOpen(true)}
                 onMouseLeave={() => setIsMenuOpen(false)}
               >
-                <NavLink href="/service" label="Our Solutions" title="CONSULTING" isHomePage={isHomePage} />
+                <NavLink href="/consulting" label="Our Solutions" title="CONSULTING" isHomePage={isHomePage} />
                 
                 {/* Dropdown Menu */}
-                <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 w-64 hidden group-hover:block">
+                <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 w-72 hidden group-hover:block">
                   <div className="bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden py-2">
-                    <Link href="/service?category=0" className="block px-6 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary transition-colors">
-                      <span className="block text-sm font-bold">SME Support</span>
-                      <span className="block text-xs text-gray-500">Business Growth & Certs</span>
+                    <Link href="/consulting#build" className="block px-6 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary transition-colors">
+                      <span className="block text-sm font-bold">BUILD</span>
+                      <span className="block text-xs text-gray-500">Foundation & System</span>
                     </Link>
-                    <Link href="/service?category=1" className="block px-6 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary transition-colors">
-                      <span className="block text-sm font-bold">Corporate Finance</span>
-                      <span className="block text-xs text-gray-500">Asset Management</span>
+                    <Link href="/consulting#grow" className="block px-6 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary transition-colors">
+                      <span className="block text-sm font-bold">GROW</span>
+                      <span className="block text-xs text-gray-500">Strategy & Funding</span>
                     </Link>
-                    <Link href="/service?category=2" className="block px-6 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary transition-colors">
-                      <span className="block text-sm font-bold">Private Wealth</span>
-                      <span className="block text-xs text-gray-500">Personal Asset Management</span>
+                    <Link href="/consulting#protect" className="block px-6 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary transition-colors">
+                      <span className="block text-sm font-bold">PROTECT</span>
+                      <span className="block text-xs text-gray-500">Finance & Assets</span>
                     </Link>
                   </div>
                 </div>
@@ -118,9 +117,9 @@ export default function MainLayout({ children }) {
               <div className="border-t border-gray-100/10 my-2"></div>
               <p className="text-xs text-gray-400 px-2 mb-2">CONSULTING</p>
               <div className="pl-4 space-y-2">
-                <MobileNavLink href="/service?category=0" onClick={toggleMenu} label="SME Support">SME SUPPORT</MobileNavLink>
-                <MobileNavLink href="/service?category=1" onClick={toggleMenu} label="Corporate Finance">CORPORATE FINANCE</MobileNavLink>
-                <MobileNavLink href="/service?category=2" onClick={toggleMenu} label="Private Wealth">PRIVATE WEALTH</MobileNavLink>
+                <MobileNavLink href="/consulting#build" onClick={toggleMenu} label="Foundation & System">BUILD</MobileNavLink>
+                <MobileNavLink href="/consulting#grow" onClick={toggleMenu} label="Strategy & Funding">GROW</MobileNavLink>
+                <MobileNavLink href="/consulting#protect" onClick={toggleMenu} label="Finance & Assets">PROTECT</MobileNavLink>
               </div>
               <div className="border-t border-gray-100/10 my-2"></div>
               <MobileNavLink href="/news" onClick={toggleMenu} label="Latest Updates">NEWS</MobileNavLink>

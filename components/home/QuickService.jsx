@@ -8,21 +8,21 @@ export default function QuickService() {
     {
       title: ["FOUNDATION", "& SYSTEM"],
       sub: "기업 인증 및 운영 시스템 구축",
-      href: "/service?category=0",
+      href: "/consulting#build",
       image: "https://eoncg0801.mycafe24.com/wp-content/uploads/2025/02/stragy.png",
       span: "lg:row-span-2 lg:col-span-1", // Large Left Block
     },
     {
       title: ["STRATEGY & FUNDING"],
       sub: "기업 성장 및 자본 조달 전략",
-      href: "/service?category=1",
+      href: "/consulting#grow",
       image: "https://eoncg0801.mycafe24.com/wp-content/uploads/2025/02/ORGANIZATION.png",
       span: "lg:col-span-1 lg:row-span-1", // Top Right
     },
     {
       title: ["FINANCE & ASSETS"],
       sub: "재무 최적화 및 자산 승계 관리",
-      href: "/service?category=2",
+      href: "/consulting#protect",
       image: "https://eoncg0801.mycafe24.com/wp-content/uploads/2025/02/a_AdobeStock_301436805.jpeg",
       span: "lg:col-span-1 lg:row-span-1", // Bottom Right
     },
@@ -94,7 +94,7 @@ export default function QuickService() {
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
           >
             <Link 
-              href="/service" 
+              href="/consulting" 
               className="hidden md:flex items-center gap-2 text-lg font-bold text-gray-900 hover:text-accent transition-colors group"
             >
               서비스 전체보기
