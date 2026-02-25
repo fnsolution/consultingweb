@@ -7,7 +7,7 @@ import { Menu, X, Linkedin, Facebook, Youtube, Instagram, Twitter } from "lucide
 export default function MainLayout({ children }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
-  const isHomePage = pathname === "/" || pathname === "/company" || pathname === "/contact" || pathname === "/news" || pathname === "/company/team" || pathname === "/consulting";
+  const isHomePage = pathname === "/" || pathname === "/company" || pathname === "/contact" || pathname === "/news" || pathname === "/company/team" || pathname === "/consulting" || pathname === "/career";
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
@@ -37,71 +37,79 @@ export default function MainLayout({ children }) {
               </Link>
             </div>
 
-            {/* Desktop Navigation - Duarte Style */}
-            <nav className="hidden md:flex items-center space-x-12">
+            {/* Desktop Navigation */}
+            <nav className="hidden md:flex items-center space-x-10 h-full">
               
               {/* Company Dropdown */}
-              <div 
-                className="relative group h-full flex items-center"
-                onMouseEnter={() => setIsMenuOpen(true)}
-                onMouseLeave={() => setIsMenuOpen(false)}
-              >
-                <NavLink href="/company" label="About Us" title="COMPANY" isHomePage={isHomePage} />
+              <div className="relative group h-full flex items-center">
+                <NavLink href="/company" title="COMPANY" isHomePage={isHomePage} />
                 
-                {/* Dropdown Menu */}
-                <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 w-48 hidden group-hover:block">
-                  <div className="bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden py-2">
-                    <Link href="/company" className="block px-6 py-3 text-gray-700 hover:bg-gray-100 transition-colors">
-                      <span className="block text-sm font-bold">About Us</span>
-                      <span className="block text-xs text-gray-500">Vision & Philosophy</span>
+                {/* Simple Dropdown Menu */}
+                <div 
+                  className="absolute top-[80%] left-1/2 -translate-x-1/2 pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible translate-y-2 group-hover:translate-y-0 whitespace-nowrap z-50 pointer-events-none group-hover:pointer-events-auto"
+                  style={{ transition: "opacity 0.2s ease-out, transform 0.2s ease-out, visibility 0.2s ease-out" }}
+                >
+                  {/* Soft Blur Background Cloud */}
+                  <div 
+                    className="absolute top-0 -bottom-6 -left-32 -right-32 backdrop-blur-md -z-10 pointer-events-none"
+                    style={{ WebkitMaskImage: "radial-gradient(ellipse at center, black 40%, transparent 70%)", maskImage: "radial-gradient(ellipse at center, black 40%, transparent 70%)" }}
+                  ></div>
+                  
+                  {/* Content */}
+                  <div className="relative flex items-center justify-center gap-6 py-2 px-4 border-none shadow-none">
+                    <Link href="/company" className="text-white drop-shadow-md hover:text-gray-300 transition-colors text-[16px] font-bold tracking-wide">
+                      회사 소개
                     </Link>
-                    <Link href="/company/team" className="block px-6 py-3 text-gray-700 hover:bg-gray-100 transition-colors">
-                      <span className="block text-sm font-bold">Our Team</span>
-                      <span className="block text-xs text-gray-500">Professionals</span>
+                    <span className="text-white/80 text-[16px] font-bold drop-shadow-md">|</span>
+                    <Link href="/company/team" className="text-white drop-shadow-md hover:text-gray-300 transition-colors text-[16px] font-bold tracking-wide">
+                      전문 인력
                     </Link>
                   </div>
                 </div>
               </div>
 
-              <div className={`h-10 w-px ${isHomePage ? 'bg-white/20' : 'bg-gray-200'}`}></div>
-              
-              <div 
-                className="relative group h-full flex items-center"
-                onMouseEnter={() => setIsMenuOpen(true)}
-                onMouseLeave={() => setIsMenuOpen(false)}
-              >
-                <NavLink href="/consulting" label="Our Solutions" title="CONSULTING" isHomePage={isHomePage} />
+              {/* Consulting Dropdown */}
+              <div className="relative group h-full flex items-center">
+                <NavLink href="/consulting" title="CONSULTING" isHomePage={isHomePage} />
                 
-                {/* Dropdown Menu */}
-                <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 w-72 hidden group-hover:block">
-                  <div className="bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden py-2">
-                    <Link href="/consulting#build" className="block px-6 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary transition-colors">
-                      <span className="block text-sm font-bold">BUILD</span>
-                      <span className="block text-xs text-gray-500">Foundation & System</span>
+                {/* Simple Dropdown Menu */}
+                <div 
+                  className="absolute top-[80%] left-1/2 -translate-x-1/2 pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible translate-y-2 group-hover:translate-y-0 whitespace-nowrap z-50 pointer-events-none group-hover:pointer-events-auto"
+                  style={{ transition: "opacity 0.2s ease-out, transform 0.2s ease-out, visibility 0.2s ease-out" }}
+                >
+                  {/* Soft Blur Background Cloud */}
+                  <div 
+                    className="absolute top-0 -bottom-6 -left-32 -right-32 backdrop-blur-md -z-10 pointer-events-none"
+                    style={{ WebkitMaskImage: "radial-gradient(ellipse at center, black 40%, transparent 70%)", maskImage: "radial-gradient(ellipse at center, black 40%, transparent 70%)" }}
+                  ></div>
+                  
+                  {/* Content */}
+                  <div className="relative flex items-center justify-center gap-6 py-2 px-4 shadow-none border-none">
+                    <Link href="/consulting#build" className="text-white drop-shadow-md hover:text-gray-300 transition-colors text-[16px] font-bold tracking-wide">
+                      BUILD (기반 구축)
                     </Link>
-                    <Link href="/consulting#grow" className="block px-6 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary transition-colors">
-                      <span className="block text-sm font-bold">GROW</span>
-                      <span className="block text-xs text-gray-500">Strategy & Funding</span>
+                    <span className="text-white/80 text-[16px] font-bold drop-shadow-md">|</span>
+                    <Link href="/consulting#grow" className="text-white drop-shadow-md hover:text-gray-300 transition-colors text-[16px] font-bold tracking-wide">
+                      GROW (성장 지원)
                     </Link>
-                    <Link href="/consulting#protect" className="block px-6 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary transition-colors">
-                      <span className="block text-sm font-bold">PROTECT</span>
-                      <span className="block text-xs text-gray-500">Finance & Assets</span>
+                    <span className="text-white/80 text-[16px] font-bold drop-shadow-md">|</span>
+                    <Link href="/consulting#protect" className="text-white drop-shadow-md hover:text-gray-300 transition-colors text-[16px] font-bold tracking-wide">
+                      PROTECT (자산 보호)
                     </Link>
                   </div>
                 </div>
               </div>
 
-              <div className={`h-10 w-px ${isHomePage ? 'bg-white/20' : 'bg-gray-200'}`}></div>
-              <NavLink href="/news" label="Latest Updates" title="NEWS" isHomePage={isHomePage} />
-              <div className={`h-10 w-px ${isHomePage ? 'bg-white/20' : 'bg-gray-200'}`}></div>
-              <NavLink href="/contact" label="Get in Touch" title="CONTACT US" isHomePage={isHomePage} />
+              <NavLink href="/news" title="NEWS" isHomePage={isHomePage} />
+              <NavLink href="/contact" title="CONTACT US" isHomePage={isHomePage} />
+              <NavLink href="/career" title="CAREER" isHomePage={isHomePage} />
             </nav>
 
             {/* Mobile Menu Button */}
             <div className="md:hidden">
               <button
                 onClick={toggleMenu}
-                className="text-white hover:text-primary focus:outline-none"
+                className="text-white hover:text-white/70 focus:outline-none"
               >
                 {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
               </button>
@@ -112,18 +120,12 @@ export default function MainLayout({ children }) {
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className={`md:hidden ${mobileMenuBg} border-b border-white/10 absolute w-full top-24 left-0`}>
-            <div className="px-4 pt-4 pb-6 space-y-4">
-              <MobileNavLink href="/company" onClick={toggleMenu} label="About Us">COMPANY</MobileNavLink>
-              <div className="border-t border-gray-100/10 my-2"></div>
-              <p className="text-xs text-gray-400 px-2 mb-2">CONSULTING</p>
-              <div className="pl-4 space-y-2">
-                <MobileNavLink href="/consulting#build" onClick={toggleMenu} label="Foundation & System">BUILD</MobileNavLink>
-                <MobileNavLink href="/consulting#grow" onClick={toggleMenu} label="Strategy & Funding">GROW</MobileNavLink>
-                <MobileNavLink href="/consulting#protect" onClick={toggleMenu} label="Finance & Assets">PROTECT</MobileNavLink>
-              </div>
-              <div className="border-t border-gray-100/10 my-2"></div>
-              <MobileNavLink href="/news" onClick={toggleMenu} label="Latest Updates">NEWS</MobileNavLink>
-              <MobileNavLink href="/contact" onClick={toggleMenu} label="Get in Touch">CONTACT US</MobileNavLink>
+            <div className="px-6 pt-4 pb-8 flex flex-col">
+              <MobileNavLink href="/company" onClick={toggleMenu}>COMPANY (회사 소개)</MobileNavLink>
+              <MobileNavLink href="/consulting" onClick={toggleMenu}>CONSULTING (컨설팅)</MobileNavLink>
+              <MobileNavLink href="/news" onClick={toggleMenu}>NEWS (새소식)</MobileNavLink>
+              <MobileNavLink href="/contact" onClick={toggleMenu}>CONTACT US (문의하기)</MobileNavLink>
+              <MobileNavLink href="/career" onClick={toggleMenu}>CAREER (채용)</MobileNavLink>
             </div>
           </div>
         )}
@@ -180,36 +182,30 @@ export default function MainLayout({ children }) {
   );
 }
 
-function NavLink({ href, label, title, isHomePage }) {
-  // Always light text for dark navbar
-  const labelColor = "text-gray-400";
-  const titleColor = "text-white";
+function NavLink({ href, title, isHomePage }) {
+  const titleColor = "text-white/90";
   const hoverColor = "group-hover:text-white";
 
   return (
     <Link 
       href={href} 
-      className="group flex flex-col items-start"
+      className="group flex items-center h-full"
     >
-      <span className={`text-xs uppercase tracking-wide mb-0.5 font-medium ${labelColor} transition-colors`}>
-        {label}
-      </span>
-      <span className={`text-xl font-bold tracking-tight ${titleColor} ${hoverColor} transition-colors`}>
+      <span className={`text-[17px] font-bold tracking-wider uppercase ${titleColor} ${hoverColor} transition-colors`}>
         {title}
       </span>
     </Link>
   );
 }
 
-function MobileNavLink({ href, onClick, label, children }) {
+function MobileNavLink({ href, onClick, children }) {
   return (
     <Link 
       href={href} 
       onClick={onClick}
-      className="block py-2"
+      className="block py-4 border-b border-white/10 last:border-0"
     >
-      <span className="block text-xs text-gray-400 mb-1">{label}</span>
-      <span className="block text-lg font-bold text-white hover:text-accent">
+      <span className="block text-lg font-bold text-white/90 hover:text-white transition-colors uppercase tracking-wide">
         {children}
       </span>
     </Link>
