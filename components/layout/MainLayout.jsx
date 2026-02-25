@@ -7,7 +7,7 @@ import { Menu, X, Linkedin, Facebook, Youtube, Instagram, Twitter } from "lucide
 export default function MainLayout({ children }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
-  const isHomePage = pathname === "/" || pathname === "/company" || pathname === "/contact" || pathname === "/news" || pathname === "/company/team" || pathname === "/consulting" || pathname === "/career";
+  const isHomePage = pathname === "/" || pathname === "/company" || pathname === "/contact" || pathname === "/news" || pathname.startsWith("/news/") || pathname === "/company/team" || pathname === "/consulting" || pathname === "/career";
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
@@ -24,7 +24,7 @@ export default function MainLayout({ children }) {
   return (
     <div className="min-h-screen flex flex-col font-sans">
       <header className={headerClass}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="w-full px-4 sm:px-8 md:px-12 lg:px-26">
           <div className="flex justify-between items-center h-24">
             {/* Logo */}
             <div className="flex-shrink-0 flex items-center">
@@ -44,24 +44,16 @@ export default function MainLayout({ children }) {
               <div className="relative group h-full flex items-center">
                 <NavLink href="/company" title="COMPANY" isHomePage={isHomePage} />
                 
-                {/* Simple Dropdown Menu */}
+                {/* Vertical Dropdown Menu */}
                 <div 
-                  className="absolute top-[80%] left-1/2 -translate-x-1/2 pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible translate-y-2 group-hover:translate-y-0 whitespace-nowrap z-50 pointer-events-none group-hover:pointer-events-auto"
+                  className="absolute top-full left-1/2 -translate-x-1/2 mt-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible translate-y-2 group-hover:translate-y-0 z-50 w-40 bg-black border-t border-[#ff3333] shadow-xl"
                   style={{ transition: "opacity 0.2s ease-out, transform 0.2s ease-out, visibility 0.2s ease-out" }}
                 >
-                  {/* Soft Blur Background Cloud */}
-                  <div 
-                    className="absolute top-0 -bottom-6 -left-32 -right-32 backdrop-blur-md -z-10 pointer-events-none"
-                    style={{ WebkitMaskImage: "radial-gradient(ellipse at center, black 40%, transparent 70%)", maskImage: "radial-gradient(ellipse at center, black 40%, transparent 70%)" }}
-                  ></div>
-                  
-                  {/* Content */}
-                  <div className="relative flex items-center justify-center gap-6 py-2 px-4 border-none shadow-none">
-                    <Link href="/company" className="text-white drop-shadow-md hover:text-gray-300 transition-colors text-[16px] font-bold tracking-wide">
+                  <div className="flex flex-col py-2">
+                    <Link href="/company" className="text-white hover:bg-white/10 px-6 py-3 transition-colors text-sm font-bold tracking-wide text-center">
                       회사 소개
                     </Link>
-                    <span className="text-white/80 text-[16px] font-bold drop-shadow-md">|</span>
-                    <Link href="/company/team" className="text-white drop-shadow-md hover:text-gray-300 transition-colors text-[16px] font-bold tracking-wide">
+                    <Link href="/company/team" className="text-white hover:bg-white/10 px-6 py-3 transition-colors text-sm font-bold tracking-wide text-center">
                       전문 인력
                     </Link>
                   </div>
@@ -72,28 +64,19 @@ export default function MainLayout({ children }) {
               <div className="relative group h-full flex items-center">
                 <NavLink href="/consulting" title="CONSULTING" isHomePage={isHomePage} />
                 
-                {/* Simple Dropdown Menu */}
+                {/* Vertical Dropdown Menu */}
                 <div 
-                  className="absolute top-[80%] left-1/2 -translate-x-1/2 pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible translate-y-2 group-hover:translate-y-0 whitespace-nowrap z-50 pointer-events-none group-hover:pointer-events-auto"
+                  className="absolute top-full left-1/2 -translate-x-1/2 mt-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible translate-y-2 group-hover:translate-y-0 z-50 w-56 bg-black border-t border-[#ff3333] shadow-xl"
                   style={{ transition: "opacity 0.2s ease-out, transform 0.2s ease-out, visibility 0.2s ease-out" }}
                 >
-                  {/* Soft Blur Background Cloud */}
-                  <div 
-                    className="absolute top-0 -bottom-6 -left-32 -right-32 backdrop-blur-md -z-10 pointer-events-none"
-                    style={{ WebkitMaskImage: "radial-gradient(ellipse at center, black 40%, transparent 70%)", maskImage: "radial-gradient(ellipse at center, black 40%, transparent 70%)" }}
-                  ></div>
-                  
-                  {/* Content */}
-                  <div className="relative flex items-center justify-center gap-6 py-2 px-4 shadow-none border-none">
-                    <Link href="/consulting#build" className="text-white drop-shadow-md hover:text-gray-300 transition-colors text-[16px] font-bold tracking-wide">
+                  <div className="flex flex-col py-2">
+                    <Link href="/consulting#build" className="text-white hover:bg-white/10 px-6 py-3 transition-colors text-sm font-bold tracking-wide text-center">
                       BUILD (기반 구축)
                     </Link>
-                    <span className="text-white/80 text-[16px] font-bold drop-shadow-md">|</span>
-                    <Link href="/consulting#grow" className="text-white drop-shadow-md hover:text-gray-300 transition-colors text-[16px] font-bold tracking-wide">
+                    <Link href="/consulting#grow" className="text-white hover:bg-white/10 px-6 py-3 transition-colors text-sm font-bold tracking-wide text-center">
                       GROW (성장 지원)
                     </Link>
-                    <span className="text-white/80 text-[16px] font-bold drop-shadow-md">|</span>
-                    <Link href="/consulting#protect" className="text-white drop-shadow-md hover:text-gray-300 transition-colors text-[16px] font-bold tracking-wide">
+                    <Link href="/consulting#protect" className="text-white hover:bg-white/10 px-6 py-3 transition-colors text-sm font-bold tracking-wide text-center">
                       PROTECT (자산 보호)
                     </Link>
                   </div>
