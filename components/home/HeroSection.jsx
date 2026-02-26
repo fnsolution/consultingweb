@@ -15,6 +15,8 @@ export default function HeroSection() {
   });
   const [isExpanded, setIsExpanded] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const regions = ["본사", "대구지사", "광주1지사", "광주2지사", "당진지사"];
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -132,11 +134,10 @@ export default function HeroSection() {
                      <AnimatePresence>
                         {isExpanded && (
                            <motion.div
-                              initial={{ height: 0, opacity: 0 }}
-                              animate={{ height: "auto", opacity: 1 }}
-                              exit={{ height: 0, opacity: 0 }}
+                              initial={{ height: 0, opacity: 0, overflow: "hidden" }}
+                              animate={{ height: "auto", opacity: 1, transitionEnd: { overflow: "visible" } }}
+                              exit={{ height: 0, opacity: 0, overflow: "hidden" }}
                               transition={{ duration: 0.4, ease: "easeInOut" }}
-                              className="overflow-hidden"
                            >
                               <div className="space-y-4 pt-1 pb-1">
                                  <div>
@@ -162,15 +163,49 @@ export default function HeroSection() {
                                            className="w-full bg-transparent border border-white/30 text-white text-lg px-5 py-3 focus:outline-none focus:border-white transition-colors"
                                         />
                                      </div>
-                                     <div>
+                                     <div className="relative">
+                                        <div 
+                                           onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                                           className={`w-full bg-transparent border border-white/30 text-lg px-5 py-3 cursor-pointer flex justify-between items-center transition-colors ${formData.region === "" ? "text-gray-400" : "text-white"} ${isDropdownOpen ? "border-white" : ""}`}
+                                        >
+                                           <span className="truncate">{formData.region || "지역(지사) 선택 *"}</span>
+                                           <ChevronDown className={`w-5 h-5 text-gray-400 transition-transform duration-300 flex-shrink-0 ${isDropdownOpen ? "rotate-180 text-white" : ""}`} />
+                                        </div>
+                                        
+                                        <AnimatePresence>
+                                           {isDropdownOpen && (
+                                              <motion.div
+                                                 initial={{ opacity: 0, y: -5 }}
+                                                 animate={{ opacity: 1, y: 0 }}
+                                                 exit={{ opacity: 0, y: -5 }}
+                                                 transition={{ duration: 0.2 }}
+                                                 className="absolute z-50 w-full mt-1 bg-black border border-white/30 shadow-2xl max-h-60 overflow-y-auto"
+                                              >
+                                                 {regions.map((region) => (
+                                                    <div
+                                                       key={region}
+                                                       onClick={() => {
+                                                          setFormData(prev => ({ ...prev, region }));
+                                                          setIsDropdownOpen(false);
+                                                       }}
+                                                       className="px-5 py-3.5 text-white/80 hover:text-white hover:bg-white/10 cursor-pointer transition-colors"
+                                                    >
+                                                       {region}
+                                                    </div>
+                                                 ))}
+                                              </motion.div>
+                                           )}
+                                        </AnimatePresence>
+                                        
+                                        {/* 필수 입력 처리를 위한 숨김 입력창 */}
                                         <input 
-                                           type="text"
-                                           name="region"
+                                           type="text" 
+                                           name="region" 
                                            value={formData.region}
                                            onChange={handleChange}
-                                           placeholder="지역 *"
                                            required={isExpanded}
-                                           className="w-full bg-transparent border border-white/30 text-white text-lg px-5 py-3 focus:outline-none focus:border-white transition-colors"
+                                           className="opacity-0 absolute w-0 h-0 pointer-events-none"
+                                           tabIndex={-1}
                                         />
                                      </div>
                                  </div>
