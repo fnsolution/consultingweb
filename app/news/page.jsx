@@ -8,10 +8,10 @@ import { db } from "../../lib/firebase";
 import { collection, query, orderBy, onSnapshot } from "firebase/firestore";
 import { useEffect } from "react";
 
-const categories = ["All", "Press Release", "Success Stories", "Insights"];
+const categories = ["FN 공지", "추천사이트", "CEO 추천도서"];
 
 export default function NewsPage() {
-  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [selectedCategory, setSelectedCategory] = useState("FN 공지");
   const [allNews, setAllNews] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -28,9 +28,7 @@ export default function NewsPage() {
     return () => unsubscribe();
   }, []);
 
-  const filteredNews = selectedCategory === "All" 
-    ? allNews 
-    : allNews.filter(item => item.category === selectedCategory);
+  const filteredNews = allNews.filter(item => item.category === selectedCategory);
 
   if (loading) {
       return <div className="min-h-screen bg-white flex items-center justify-center font-bold">Loading...</div>;

@@ -71,19 +71,40 @@ export default function MainLayout({ children }) {
                 >
                   <div className="flex flex-col py-2">
                     <Link href="/consulting#build" className="text-white hover:bg-white/10 px-6 py-3 transition-colors text-sm font-bold tracking-wide text-center">
-                      BUILD (기반 구축)
+                      역량강화
                     </Link>
                     <Link href="/consulting#grow" className="text-white hover:bg-white/10 px-6 py-3 transition-colors text-sm font-bold tracking-wide text-center">
-                      GROW (성장 지원)
+                      성장지원
                     </Link>
                     <Link href="/consulting#protect" className="text-white hover:bg-white/10 px-6 py-3 transition-colors text-sm font-bold tracking-wide text-center">
-                      PROTECT (자산 보호)
+                      자산관리
                     </Link>
                   </div>
                 </div>
               </div>
 
-              <NavLink href="/news" title="NEWS" isHomePage={isHomePage} />
+              {/* News Dropdown */}
+              <div className="relative group h-full flex items-center">
+                <NavLink href="/news" title="NEWS" isHomePage={isHomePage} />
+                
+                {/* Vertical Dropdown Menu */}
+                <div 
+                  className="absolute top-full left-1/2 -translate-x-1/2 mt-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible translate-y-2 group-hover:translate-y-0 z-50 w-40 bg-black border-t border-[#ff3333] shadow-xl"
+                  style={{ transition: "opacity 0.2s ease-out, transform 0.2s ease-out, visibility 0.2s ease-out" }}
+                >
+                  <div className="flex flex-col py-2">
+                    <Link href="/news" className="text-white hover:bg-white/10 px-6 py-3 transition-colors text-sm font-bold tracking-wide text-center">
+                      FN 공지
+                    </Link>
+                    <Link href="/news" className="text-white hover:bg-white/10 px-6 py-3 transition-colors text-sm font-bold tracking-wide text-center">
+                      추천사이트
+                    </Link>
+                    <Link href="/news" className="text-white hover:bg-white/10 px-6 py-3 transition-colors text-sm font-bold tracking-wide text-center">
+                      CEO 추천도서
+                    </Link>
+                  </div>
+                </div>
+              </div>
               <NavLink href="/contact" title="CONTACT US" isHomePage={isHomePage} />
               <NavLink href="/career" title="CAREER" isHomePage={isHomePage} />
             </nav>

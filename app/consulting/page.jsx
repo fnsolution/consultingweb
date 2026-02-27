@@ -11,8 +11,8 @@ export default function ConsultingPage() {
   const sections = [
     {
       id: "build",
-      title: "BUILD",
-      subtitle: "Foundation & System",
+      title: "역량강화",
+      subtitle: "역량강화",
       description: "기업 인증 및 운영 시스템 구축",
       items: [
         "지식재산권",
@@ -21,30 +21,33 @@ export default function ConsultingPage() {
         "이노비즈 인증",
         "메인비즈 인증",
         "ISO 인증",
-        "정책자금 컨설팅",
-        "정부지원사업 컨설팅",
-        "창업 컨설팅",
-        "바우처 컨설팅",
-        "4대 보험료 절감 컨설팅",
         "정관/취업규칙 컨설팅",
+        "인사/노무 컨설팅",
+        "구조개선 컨설팅",
       ]
     },
     {
       id: "grow",
-      title: "GROW",
-      subtitle: "Strategy & Funding",
+      title: "성장지원",
+      subtitle: "성장지원",
       description: "기업 성장 및 자본 조달 전략",
       items: [
-        "창업 컨설팅",
-        "정책자금 컨설팅",
-        "정부지원사업 컨설팅",
-        "바우처 컨설팅",
+        "정부지원 정책자금",
+        "정부지원 보증/융자",
+        "정부지원 시설융자",
+        "지역별 특별자금",
+        "창업지원 융자",
+        "R&D지원 컨설팅",
+        "사업화지원 컨설팅",
+        "바우처지원 컨설팅",
+        "창업지원 컨설팅",
+        "소상공인지원 컨설팅",
       ]
     },
     {
       id: "protect",
-      title: "PROTECT",
-      subtitle: "Finance & Assets",
+      title: "자산관리",
+      subtitle: "자산관리",
       description: "재무 최적화 및 자산 승계 관리",
       items: [
         "기업 재무/회계 컨설팅",

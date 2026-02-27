@@ -24,7 +24,13 @@ const historyData = [
   { year: "2025", title: "재무·경영 컨설팅 전문위원 1000명 배출", description: "지속적인 특화 교육과 인력 양성을 통해 체계적인 전문 컨설팅 네트워크를 전국 규모로 확장하며, 명실공히 대한민국 최고의 컨설팅 그룹으로 도약했습니다." },
   { year: "2024", title: "안동지사, 부산지사 설립", description: "전국 각지에 핵심 네트워크 거점을 순차적으로 확보하며 기업별 맞춤형 밀착 컨설팅 라인을 견고하게 구축, 현장 중심의 서비스를 강화했습니다." },
   { year: "2023", title: "전사적 디지털 전환 (DT)", description: "경영 분석 모델 및 내부 컨설팅 프로세스에 첨단 데이터 솔루션을 대거 도입하여, 복잡다단한 경영 리스크를 오차 없이 진단하는 디지털 워크플로우를 확립했습니다." },
-  { year: "2019", title: "BS사업부 및 중소기업지원센터 설립", description: "현장 일선에 있는 중소기업들의 실질적인 애로사항을 면밀히 분석하고 원스톱으로 지원할 수 있는 특화 센터를 출범하여, 동반 성장의 가치를 실현하고 있습니다." },
+  { 
+    year: "2019", 
+    events: [
+      { title: "경영컨설팅 전문기업화", description: "재무컨설팅 전문회사에서 중소기업 및 소상공인을 위한 경영컨설팅 체제를 도입하였고, 수준 높은 전문인력을 리크루팅 및 양성하기 위해 별도 조직을 구성하였습니다." },
+      { title: "BS사업부 및 중소기업지원센터 설립", description: "현장 일선에 있는 중소기업들의 실질적인 애로사항을 면밀히 분석하고 원스톱으로 지원할 수 있는 특화 센터를 출범하여, 동반 성장의 가치를 실현하고 있습니다." }
+    ]
+  },
   { year: "2017", title: "자사 브랜드 상표등록", description: "기업의 고유철학과 컨설팅 방법론을 결합한 브랜드 가치를 공식적으로 인정받고, 파트너사와 고객들에게 높은 전문성을 각인시키는 계기를 마련했습니다." },
   { year: "2016", title: "금융보국의 이념으로 회사 설립", description: "'금융으로 국가와 국민에게 지대하게 기여한다'는 굳건한 사명감을 바탕으로, 기업들의 지속적인 생존과 성장을 위한 신개념 컨설팅을 제공하고자 첫발을 내디뎠습니다." },
 ];
@@ -210,8 +216,21 @@ export default function StatsBoard() {
                             {/* Mobile Layout (Visible only on small screens) */}
                             <div className="lg:hidden w-full pl-24 flex flex-col pb-8 pt-1">
                                 <span className="text-5xl font-bold text-gray-800 font-sans mb-2 tracking-tighter block">{item.year}</span>
-                                <h4 className="text-xl font-bold text-black mb-3 break-keep">{item.title}</h4>
-                                {item.description && <p className="text-gray-800 text-sm font-medium leading-relaxed break-keep">{item.description}</p>}
+                                {item.events ? (
+                                    <div className="flex flex-col gap-6 mt-1">
+                                        {item.events.map((event, i) => (
+                                            <div key={i}>
+                                                <h4 className="text-xl font-bold text-black mb-3 break-keep">{event.title}</h4>
+                                                {event.description && <p className="text-gray-800 text-sm font-medium leading-relaxed break-keep">{event.description}</p>}
+                                            </div>
+                                        ))}
+                                    </div>
+                                ) : (
+                                    <>
+                                        <h4 className="text-xl font-bold text-black mb-3 break-keep">{item.title}</h4>
+                                        {item.description && <p className="text-gray-800 text-sm font-medium leading-relaxed break-keep">{item.description}</p>}
+                                    </>
+                                )}
                             </div>
 
                             {/* Desktop Left Content (Visible only on even indexes) */}
@@ -219,8 +238,21 @@ export default function StatsBoard() {
                                 {index % 2 === 0 && (
                                     <>
                                         <span className="text-6xl font-bold text-gray-800 font-sans mb-4 tracking-tighter block">{item.year}</span>
-                                        <h4 className="text-2xl font-bold text-black mb-3 break-keep">{item.title}</h4>
-                                        {item.description && <p className="text-gray-800 font-medium leading-relaxed break-keep">{item.description}</p>}
+                                        {item.events ? (
+                                            <div className="flex flex-col gap-6 items-end mt-2">
+                                                {item.events.map((event, i) => (
+                                                    <div key={i} className="flex flex-col items-end">
+                                                        <h4 className="text-2xl font-bold text-black mb-3 break-keep">{event.title}</h4>
+                                                        {event.description && <p className="text-gray-800 font-medium leading-relaxed break-keep">{event.description}</p>}
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        ) : (
+                                            <>
+                                                <h4 className="text-2xl font-bold text-black mb-3 break-keep">{item.title}</h4>
+                                                {item.description && <p className="text-gray-800 font-medium leading-relaxed break-keep">{item.description}</p>}
+                                            </>
+                                        )}
                                     </>
                                 )}
                             </div>
@@ -233,8 +265,21 @@ export default function StatsBoard() {
                                 {index % 2 !== 0 && (
                                     <>
                                         <span className="text-6xl font-bold text-gray-800 font-sans mb-4 tracking-tighter block">{item.year}</span>
-                                        <h4 className="text-2xl font-bold text-black mb-3 break-keep">{item.title}</h4>
-                                        {item.description && <p className="text-gray-800 font-medium leading-relaxed break-keep">{item.description}</p>}
+                                        {item.events ? (
+                                            <div className="flex flex-col gap-6 items-start mt-2">
+                                                {item.events.map((event, i) => (
+                                                    <div key={i} className="flex flex-col items-start">
+                                                        <h4 className="text-2xl font-bold text-black mb-3 break-keep">{event.title}</h4>
+                                                        {event.description && <p className="text-gray-800 font-medium leading-relaxed break-keep">{event.description}</p>}
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        ) : (
+                                            <>
+                                                <h4 className="text-2xl font-bold text-black mb-3 break-keep">{item.title}</h4>
+                                                {item.description && <p className="text-gray-800 font-medium leading-relaxed break-keep">{item.description}</p>}
+                                            </>
+                                        )}
                                     </>
                                 )}
                             </div>

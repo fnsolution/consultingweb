@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { MapPin, Phone, Mail, ChevronDown } from "lucide-react";
+import { MapPin, Phone, Mail, ChevronDown, Printer } from "lucide-react";
 import { db } from "../../lib/firebase";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 
@@ -277,14 +277,19 @@ export default function ContactPage() {
                     <div className="flex items-start gap-6">
                         <MapPin className="w-6 h-6 mt-1 text-white" />
                         <p className="leading-relaxed drop-shadow-md">
-                            서울특별시 강남구 테헤란로 123<br/>
-                            에프앤솔루션 빌딩 10층
+                            서울특별시 금천구 가산디지털1로 145<br/>
+                            에이스하이엔드타워3차 903호
                         </p>
                     </div>
                     
                     <div className="flex items-center gap-6">
                         <Phone className="w-6 h-6 text-white" />
-                        <p className="drop-shadow-md">+82 2-1234-5678</p>
+                        <p className="drop-shadow-md">02-6746-0143</p>
+                    </div>
+
+                    <div className="flex items-center gap-6">
+                        <Printer className="w-6 h-6 text-white" />
+                        <p className="drop-shadow-md">02-6746-0190</p>
                     </div>
 
                     <div className="flex items-center gap-6">
@@ -294,7 +299,7 @@ export default function ContactPage() {
                 </div>
 
                 <div className="mt-16 pt-10 border-t border-white/30">
-                    <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 text-sm font-extrabold uppercase tracking-widest hover:text-[#ff3333] transition-colors group text-white">
+                    <a href="https://map.naver.com/p/search/%EC%84%9C%EC%9A%B8%ED%8A%B9%EB%B3%84%EC%8B%9C%20%EA%B8%88%EC%B2%9C%EA%B5%AC%20%EA%B0%80%EC%82%B0%EB%94%94%EC%A7%80%ED%84%B81%EB%A1%9C%20145" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 text-sm font-extrabold uppercase tracking-widest hover:text-[#ff3333] transition-colors group text-white">
                         <div className="p-2 border-2 border-white/50 rounded-full group-hover:border-[#ff3333] transition-colors">
                             <MapPin className="w-4 h-4" />
                         </div>
