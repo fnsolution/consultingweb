@@ -17,7 +17,7 @@ export default function AdminPage() {
     if (password === "admin1234") {
       setIsAuthenticated(true);
     } else {
-      alert("Invalid Password");
+      alert("비밀번호가 일치하지 않습니다.");
     }
   };
 
@@ -25,16 +25,16 @@ export default function AdminPage() {
     return (
       <div className="flex min-h-screen items-center justify-center bg-gray-100">
         <form onSubmit={handleLogin} className="bg-white p-8 rounded-lg shadow-md w-96">
-          <h1 className="text-2xl font-bold mb-6 text-center">Admin Login</h1>
+          <h1 className="text-2xl font-bold mb-6 text-center">관리자 로그인</h1>
           <input
             type="password"
-            placeholder="Enter Admin Password"
+            placeholder="관리자 비밀번호 입력"
             className="w-full border p-3 rounded mb-4"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
           <button type="submit" className="w-full bg-black text-white p-3 rounded font-bold hover:bg-gray-800">
-            Login
+            로그인
           </button>
         </form>
       </div>
@@ -45,9 +45,9 @@ export default function AdminPage() {
     <div className="min-h-screen bg-gray-50 p-8">
       <div className="max-w-7xl mx-auto">
         <header className="flex justify-between items-center mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">Admin Dashboard</h1>
+          <h1 className="text-3xl font-bold text-gray-900">관리자 대시보드</h1>
           <button onClick={() => setIsAuthenticated(false)} className="text-sm text-gray-500 hover:text-black">
-            Logout
+            로그아웃
           </button>
         </header>
 
@@ -56,13 +56,13 @@ export default function AdminPage() {
                 onClick={() => setActiveTab("inquiries")} 
                 className={`px-4 py-2 font-bold rounded ${activeTab === "inquiries" ? "bg-black text-white" : "bg-white text-gray-600 border"}`}
             >
-                Inquiries
+                문의 내역
             </button>
             <button 
                 onClick={() => setActiveTab("news")} 
                 className={`px-4 py-2 font-bold rounded ${activeTab === "news" ? "bg-black text-white" : "bg-white text-gray-600 border"}`}
             >
-                News
+                뉴스 관리
             </button>
         </div>
 
@@ -110,7 +110,7 @@ function InquiriesTab() {
   };
 
   const deleteInquiry = async (id) => {
-      if(!confirm("Are you sure you want to delete this inquiry?")) return;
+      if(!confirm("정말로 이 문의를 삭제하시겠습니까?")) return;
       try {
           await deleteDoc(doc(db, "inquiries", id));
       } catch (error) {
@@ -118,20 +118,20 @@ function InquiriesTab() {
       }
   }
 
-  if (loading) return <div className="text-center py-20">Loading Inquiries...</div>;
+  if (loading) return <div className="text-center py-20">문의 내역을 불러오는 중...</div>;
 
   return (
     <div className="bg-white rounded-lg shadow overflow-hidden">
         <table className="min-w-full divide-y divide-gray-200">
             <thead className="bg-gray-50">
                 <tr>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Contact</th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Company</th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Message</th>
-                    <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">날짜</th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">이름</th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">연락처</th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">회사명</th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">상태</th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">메시지</th>
+                    <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">관리</th>
                 </tr>
             </thead>
             <tbody className="bg-white divide-y divide-gray-200">
@@ -205,7 +205,7 @@ function NewsTab() {
   }, []);
 
   const deleteNews = async (item) => {
-      if(!confirm("Are you sure you want to delete this news article?")) return;
+      if(!confirm("정말로 이 뉴스를 삭제하시겠습니까?")) return;
       try {
           // Delete from Firestore
           await deleteDoc(doc(db, "news", item.id));
@@ -235,23 +235,23 @@ function NewsTab() {
       setIsModalOpen(true);
   };
 
-  if (loading) return <div className="text-center py-20">Loading News...</div>;
+  if (loading) return <div className="text-center py-20">뉴스를 불러오는 중...</div>;
 
   return (
     <>
       <div className="mb-4 flex justify-end">
           <button onClick={openCreateModal} className="bg-black text-white px-4 py-2 rounded font-bold hover:bg-gray-800">
-              + Create News
+              + 뉴스 작성
           </button>
       </div>
       <div className="bg-white rounded-lg shadow overflow-hidden">
           <table className="min-w-full divide-y divide-gray-200">
               <thead className="bg-gray-50">
                   <tr>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Category</th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Title</th>
-                      <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">날짜</th>
+                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">카테고리</th>
+                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">제목</th>
+                      <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">관리</th>
                   </tr>
               </thead>
               <tbody className="bg-white divide-y divide-gray-200">
@@ -281,7 +281,7 @@ function NewsTab() {
                   {news.length === 0 && (
                       <tr>
                           <td colSpan="4" className="px-6 py-4 text-center text-sm text-gray-500">
-                              No news articles found. Create one!
+                              등록된 뉴스가 없습니다. 새 뉴스를 작성해주세요!
                           </td>
                       </tr>
                   )}
@@ -304,7 +304,7 @@ function NewsTab() {
 function NewsModal({ isOpen, onClose, editingNews }) {
     const [formData, setFormData] = useState({
         title: editingNews?.title || "",
-        category: editingNews?.category || "Press Release",
+        category: editingNews?.category || "FN 공지",
         date: editingNews?.date || new Date().toISOString().split('T')[0].replace(/-/g, '.'),
         image: editingNews?.image || "",
         desc: editingNews?.desc || "",
@@ -364,13 +364,13 @@ function NewsModal({ isOpen, onClose, editingNews }) {
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
             <div className="bg-white rounded-lg shadow-xl w-full max-w-2xl max-h-[90vh] overflow-y-auto">
                 <div className="p-6 border-b flex justify-between items-center">
-                    <h2 className="text-2xl font-bold">{editingNews ? "Edit News" : "Create News"}</h2>
+                    <h2 className="text-2xl font-bold">{editingNews ? "뉴스 수정" : "뉴스 작성"}</h2>
                     <button onClick={onClose} className="text-gray-500 hover:text-black">✕</button>
                 </div>
                 <form onSubmit={handleSubmit} className="p-6 space-y-4">
                     <div className="grid grid-cols-2 gap-4">
                         <div>
-                            <label className="block text-sm font-medium text-gray-700 mb-1">Category</label>
+                            <label className="block text-sm font-medium text-gray-700 mb-1">카테고리</label>
                             <select 
                                 name="category" 
                                 value={formData.category} 
@@ -378,13 +378,13 @@ function NewsModal({ isOpen, onClose, editingNews }) {
                                 className="w-full border p-2 rounded"
                                 required
                             >
-                                <option value="Press Release">Press Release</option>
-                                <option value="Success Stories">Success Stories</option>
-                                <option value="Insights">Insights</option>
+                                <option value="FN 공지">FN 공지</option>
+                                <option value="추천사이트">추천사이트</option>
+                                <option value="CEO 추천도서">CEO 추천도서</option>
                             </select>
                         </div>
                         <div>
-                            <label className="block text-sm font-medium text-gray-700 mb-1">Date (YYYY.MM.DD)</label>
+                            <label className="block text-sm font-medium text-gray-700 mb-1">날짜 (YYYY.MM.DD)</label>
                             <input 
                                 type="text" 
                                 name="date" 
@@ -397,7 +397,7 @@ function NewsModal({ isOpen, onClose, editingNews }) {
                     </div>
                     
                     <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Title</label>
+                        <label className="block text-sm font-medium text-gray-700 mb-1">제목</label>
                         <input 
                             type="text" 
                             name="title" 
@@ -409,7 +409,7 @@ function NewsModal({ isOpen, onClose, editingNews }) {
                     </div>
 
                     <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Upload Image (Hero Image)</label>
+                        <label className="block text-sm font-medium text-gray-700 mb-1">이미지 업로드 (대표 이미지)</label>
                         <input 
                             type="file" 
                             accept="image/*"
@@ -417,12 +417,12 @@ function NewsModal({ isOpen, onClose, editingNews }) {
                             className="w-full border p-2 rounded bg-gray-50"
                         />
                         {formData.image && !imageFile && (
-                            <p className="text-xs text-gray-500 mt-2">Current image URL: {formData.image.substring(0, 50)}...</p>
+                            <p className="text-xs text-gray-500 mt-2">현재 이미지 URL: {formData.image.substring(0, 50)}...</p>
                         )}
                     </div>
 
                     <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Short Description</label>
+                        <label className="block text-sm font-medium text-gray-700 mb-1">짧은 설명 (요약)</label>
                         <textarea 
                             name="desc" 
                             value={formData.desc} 
@@ -433,7 +433,7 @@ function NewsModal({ isOpen, onClose, editingNews }) {
                     </div>
 
                     <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Content (Markdown / Text)</label>
+                        <label className="block text-sm font-medium text-gray-700 mb-1">내용 (마크다운 / 텍스트)</label>
                         <textarea 
                             name="content" 
                             value={formData.content} 
@@ -445,10 +445,10 @@ function NewsModal({ isOpen, onClose, editingNews }) {
 
                     <div className="flex justify-end gap-2 pt-4 border-t">
                         <button type="button" onClick={onClose} className="px-4 py-2 border rounded font-medium hover:bg-gray-50">
-                            Cancel
+                            취소
                         </button>
                         <button type="submit" disabled={submitting} className="px-4 py-2 bg-black text-white rounded font-medium hover:bg-gray-800 disabled:opacity-50">
-                            {submitting ? "Saving..." : "Save"}
+                            {submitting ? "저장 중..." : "저장"}
                         </button>
                     </div>
                 </form>
