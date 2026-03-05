@@ -85,7 +85,7 @@ export default function MainLayout({ children }) {
 
               {/* News Dropdown */}
               <div className="relative group h-full flex items-center">
-                <NavLink href="/news" title="NEWS" isHomePage={isHomePage} />
+                <NavLink href="/news" title="INFO" isHomePage={isHomePage} />
                 
                 {/* Vertical Dropdown Menu */}
                 <div 
@@ -127,7 +127,7 @@ export default function MainLayout({ children }) {
             <div className="px-6 pt-4 pb-8 flex flex-col">
               <MobileNavLink href="/company" onClick={toggleMenu}>COMPANY (회사 소개)</MobileNavLink>
               <MobileNavLink href="/consulting" onClick={toggleMenu}>CONSULTING (컨설팅)</MobileNavLink>
-              <MobileNavLink href="/news" onClick={toggleMenu}>NEWS (새소식)</MobileNavLink>
+              <MobileNavLink href="/news" onClick={toggleMenu}>INFO (새소식)</MobileNavLink>
               <MobileNavLink href="/contact" onClick={toggleMenu}>CONTACT US (문의하기)</MobileNavLink>
               <MobileNavLink href="/career" onClick={toggleMenu}>CAREER (채용)</MobileNavLink>
             </div>
@@ -146,7 +146,7 @@ export default function MainLayout({ children }) {
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12">
              {/* Logo */}
              <div>
-               <h3 className="text-2xl font-bold tracking-tight uppercase text-white">FN solution</h3>
+               <h3 className="text-2xl font-bold tracking-tight text-white">FN solution</h3>
              </div>
              
              {/* Social & Util */}
