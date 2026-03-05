@@ -51,20 +51,22 @@ export default function ContactPage() {
     }
   };
   return (
-    <div className="font-sans">
+    <div className="font-sans relative bg-black">
       
-      {/* HERO SECTION */}
-      <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden bg-black">
-        {/* Background - Worm's Eye View of Buildings */}
-        <div className="absolute inset-0">
-             <img 
-                src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop" 
-                alt="Contact Hero" 
-                className="w-full h-full object-cover opacity-60"
-             />
-             <div className="absolute inset-0 bg-black/50"></div>
-        </div>
-        
+      {/* GLOBAL BACKGROUND */}
+      <div className="absolute inset-0 z-0">
+         <img 
+            src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop" 
+            alt="Global Contact Background" 
+            className="w-full h-full object-cover opacity-60 grayscale hover:grayscale-0 transition-all duration-700 ease-out"
+         />
+         <div className="absolute inset-0 bg-black/40"></div>
+      </div>
+
+      <div className="relative z-10 w-full flex flex-col">
+        {/* HERO SECTION */}
+        <section className="relative flex items-center justify-center pt-24 pb-12 md:pt-32 md:pb-16 overflow-hidden">
+          
         <div className="relative z-10 text-center">
             <motion.h1 
                 className="text-5xl md:text-7xl font-bold text-white tracking-tight"
@@ -83,30 +85,33 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* SPLIT LAYOUT SECTION - Increased vertical height (py-32, min-h-[800px]) */}
-      <div className="flex flex-col lg:flex-row min-h-[800px]">
+      {/* SUBTLE DIVIDER */}
+      <div className="w-full h-px bg-white/20"></div>
+
+      {/* SPLIT LAYOUT SECTION */}
+      <div className="flex flex-col lg:flex-row w-full max-w-[1920px] mx-auto">
         
         {/* LEFT COLUMN: Contact Form (White) */}
-        <div className="w-full lg:w-1/2 bg-white flex flex-col justify-center px-8 md:px-20 py-32 order-2 lg:order-1">
+        <div className="w-full lg:w-1/2 bg-white/95 backdrop-blur-sm flex flex-col justify-center px-6 md:px-12 py-12 md:py-16 order-2 lg:order-1">
             <motion.div 
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
             >
-                <div className="mb-12">
-                    <h2 className="text-3xl font-bold text-black uppercase tracking-tight mb-4">
+                <div className="mb-8">
+                    <h2 className="text-2xl md:text-3xl font-bold text-black uppercase tracking-tight mb-2">
                         Send a Message
                     </h2>
-                    <p className="text-gray-500">
+                    <p className="text-gray-500 text-sm md:text-base">
                         전문가와의 상담이 필요하시다면 언제든 문의주세요.
                     </p>
                 </div>
 
-                <form className="space-y-10" onSubmit={handleSubmit}>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-                        <div className="space-y-2">
-                            <label className="text-xs font-bold text-gray-400 uppercase tracking-widest">성함 *</label>
+                <form className="space-y-6" onSubmit={handleSubmit}>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div className="space-y-1">
+                            <label className="text-[11px] font-bold text-gray-400 uppercase tracking-widest">성함 *</label>
                             <input 
                                 type="text" 
                                 name="name"
@@ -114,11 +119,11 @@ export default function ContactPage() {
                                 onChange={handleChange}
                                 required
                                 placeholder="홍길동"
-                                className="w-full border-b border-gray-200 py-3 text-lg text-black focus:outline-none focus:border-black transition-colors rounded-none"
+                                className="w-full border-b border-gray-200 py-2 text-base text-black focus:outline-none focus:border-black transition-colors rounded-none"
                             />
                         </div>
-                        <div className="space-y-2">
-                            <label className="text-xs font-bold text-gray-400 uppercase tracking-widest">기업명 *</label>
+                        <div className="space-y-1">
+                            <label className="text-[11px] font-bold text-gray-400 uppercase tracking-widest">기업명 *</label>
                             <input 
                                 type="text" 
                                 name="company"
@@ -126,14 +131,14 @@ export default function ContactPage() {
                                 onChange={handleChange}
                                 required
                                 placeholder="(주)기업명"
-                                className="w-full border-b border-gray-200 py-3 text-lg text-black focus:outline-none focus:border-black transition-colors rounded-none"
+                                className="w-full border-b border-gray-200 py-2 text-base text-black focus:outline-none focus:border-black transition-colors rounded-none"
                             />
                         </div>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-                        <div className="space-y-2">
-                            <label className="text-xs font-bold text-gray-400 uppercase tracking-widest">이메일 *</label>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div className="space-y-1">
+                            <label className="text-[11px] font-bold text-gray-400 uppercase tracking-widest">이메일 *</label>
                             <input 
                                 type="email" 
                                 name="email"
@@ -141,11 +146,11 @@ export default function ContactPage() {
                                 onChange={handleChange}
                                 required
                                 placeholder="example@email.com"
-                                className="w-full border-b border-gray-200 py-3 text-lg text-black focus:outline-none focus:border-black transition-colors rounded-none"
+                                className="w-full border-b border-gray-200 py-2 text-base text-black focus:outline-none focus:border-black transition-colors rounded-none"
                             />
                         </div>
-                        <div className="space-y-2">
-                            <label className="text-xs font-bold text-gray-400 uppercase tracking-widest">연락처 *</label>
+                        <div className="space-y-1">
+                            <label className="text-[11px] font-bold text-gray-400 uppercase tracking-widest">연락처 *</label>
                             <input 
                                 type="tel" 
                                 name="phone"
@@ -153,13 +158,13 @@ export default function ContactPage() {
                                 onChange={handleChange}
                                 required
                                 placeholder="010-0000-0000"
-                                className="w-full border-b border-gray-200 py-3 text-lg text-black focus:outline-none focus:border-black transition-colors rounded-none"
+                                className="w-full border-b border-gray-200 py-2 text-base text-black focus:outline-none focus:border-black transition-colors rounded-none"
                             />
                         </div>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-                        <div className="space-y-2 relative">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div className="space-y-1 relative">
                             <label className="text-xs font-bold text-gray-400 uppercase tracking-widest">지사 선택 *</label>
                             <div 
                                 onClick={() => setIsDropdownOpen(!isDropdownOpen)}
@@ -206,7 +211,7 @@ export default function ContactPage() {
                             />
                         </div>
                         <div className="space-y-2">
-                            <label className="text-xs font-bold text-gray-400 uppercase tracking-widest">업종 *</label>
+                            <label className="text-[11px] font-bold text-gray-400 uppercase tracking-widest">업종 *</label>
                             <input 
                                 type="text" 
                                 name="industry"
@@ -214,22 +219,22 @@ export default function ContactPage() {
                                 onChange={handleChange}
                                 required
                                 placeholder="IT, 제조, 서비스 등"
-                                className="w-full border-b border-gray-200 py-3 text-lg text-black focus:outline-none focus:border-black transition-colors rounded-none"
+                                className="w-full border-b border-gray-200 py-2 text-base text-black focus:outline-none focus:border-black transition-colors rounded-none"
                             />
                         </div>
                     </div>
 
-                    <div className="space-y-2 pt-6">
-                        <div className="flex items-center gap-2 mb-4">
-                            <label className="text-xs font-bold text-gray-400 uppercase tracking-widest">I agree to receive communications</label>
-                            <input type="checkbox" className="accent-black w-4 h-4" required />
+                    <div className="space-y-1 pt-4">
+                        <div className="flex items-center gap-2 mb-2">
+                            <label className="text-[11px] font-bold text-gray-400 uppercase tracking-widest">I agree to receive communications</label>
+                            <input type="checkbox" className="accent-black w-3.5 h-3.5" required />
                         </div>
                     </div>
 
                     <button 
                         type="submit"
                         disabled={status === "submitting"}
-                        className="bg-black text-white px-12 py-5 text-sm font-bold uppercase tracking-[0.2em] hover:bg-[#ff3333] transition-colors duration-300 transform hover:translate-y-[-2px] disabled:opacity-50 disabled:cursor-not-allowed"
+                        className="bg-black text-white px-8 py-3.5 text-xs font-bold uppercase tracking-[0.2em] hover:bg-[#ff3333] transition-colors duration-300 transform hover:translate-y-[-2px] disabled:opacity-50 disabled:cursor-not-allowed w-full md:w-auto mt-2"
                     >
                         {status === "submitting" ? "Sending..." : "Submit"}
                     </button>
@@ -248,29 +253,20 @@ export default function ContactPage() {
             </motion.div>
         </div>
 
-        {/* RIGHT COLUMN: Info & Image (Dark with Overlay) */}
-        <div className="w-full lg:w-1/2 relative min-h-[1000px] bg-black order-1 lg:order-2">
-            {/* Background Image */}
-            <div className="absolute inset-0">
-                <img 
-                    src="/building.avif" 
-                    alt="Office Building" 
-                    className="w-full h-full object-cover opacity-60 grayscale hover:grayscale-0 transition-all duration-700 ease-out"
-                />
-                <div className="absolute inset-0 bg-black/40"></div>
-            </div>
-
+        {/* RIGHT COLUMN: Info & Image (Transparent Background) */}
+        <div className="w-full lg:w-1/2 relative min-h-[400px] order-1 lg:order-2 flex flex-col justify-end">
+            
             {/* Content Overlay */}
             <motion.div 
-                className="absolute inset-0 flex flex-col justify-end p-12 md:p-24 text-white"
+                className="w-full flex flex-col justify-end p-8 md:p-16 text-white pb-12"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: 0.2 }}
             >
-                <div className="mb-16">
-                    <h3 className="text-5xl font-extrabold mb-3 text-[#ff3333] tracking-tight">Seoul</h3>
-                    <p className="text-3xl font-bold text-white">Headquarters</p>
+                <div className="mb-10">
+                    <h3 className="text-4xl font-extrabold mb-2 text-[#ff3333] tracking-tight">Seoul</h3>
+                    <p className="text-2xl font-bold text-white">Headquarters</p>
                 </div>
 
                 <div className="space-y-8 text-xl font-medium text-gray-100">
@@ -309,6 +305,7 @@ export default function ContactPage() {
             </motion.div>
         </div>
 
+      </div>
       </div>
     </div>
   );
