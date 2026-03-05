@@ -56,7 +56,7 @@ export default function ContactPage() {
       {/* GLOBAL BACKGROUND */}
       <div className="absolute inset-0 z-0">
          <img 
-            src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop" 
+            src="https://images.unsplash.com/photo-1698051936010-414c70a35588?q=80&w=2370&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
             alt="Global Contact Background" 
             className="w-full h-full object-cover opacity-60 grayscale hover:grayscale-0 transition-all duration-700 ease-out"
          />
@@ -65,7 +65,7 @@ export default function ContactPage() {
 
       <div className="relative z-10 w-full flex flex-col">
         {/* HERO SECTION */}
-        <section className="relative flex items-center justify-center pt-24 pb-12 md:pt-32 md:pb-16 overflow-hidden">
+        <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden">
           
         <div className="relative z-10 text-center">
             <motion.h1 
