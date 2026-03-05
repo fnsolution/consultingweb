@@ -73,8 +73,6 @@ export default function HeroSection() {
             alt="Background" 
             className="w-full h-full object-cover"
          />
-         {/* Dark Overlay */}
-         <div className="absolute inset-0 bg-black/60" />
       </div>
 
       <div className="relative z-20 h-full flex items-center px-4 sm:px-6 lg:px-26 mx-auto">
@@ -87,19 +85,16 @@ export default function HeroSection() {
               transition={{ duration: 0.8, ease: "easeOut" }}
               className="text-white"
             >
-               {/* Title */}
-               <h1 className="text-5xl md:text-6xl lg:text-[76px] font-black mb-8 leading-tight break-keep">
-                  금융보국(金融報國)
+               <h3 className="text-lg md:text-xl lg:text-2xl font-bold tracking-[0.2em] mb-4 uppercase text-white drop-shadow-md">
+                  Welcome to FN solution
+               </h3>
+
+               <h1 className="text-5xl md:text-6xl lg:text-[72px] xl:text-[80px] font-black mb-12 leading-[1.1] break-keep tracking-tighter text-white drop-shadow-2xl">
+                  The Most Trusted <br className="hidden lg:block" />Name in Consulting
                </h1>
 
-               {/* Korean Tagline */}
-               <div className="text-2xl md:text-3xl lg:text-4xl font-medium mb-8 space-y-2 break-keep">
-                  <p>금융으로 국가와 국민에게 기여한다</p>
-               </div>
-
-               {/* Slogan with Red Dot */}
-               <p className="text-2xl md:text-3xl lg:text-[32px] font-medium leading-relaxed">
-                  We Make Your Value Visible<span className="text-red-500">.</span>
+               <p className="text-xl md:text-2xl lg:text-3xl font-medium leading-relaxed text-gray-200 drop-shadow-lg tracking-wide">
+                  가장 신뢰할 수 있는 컨설팅 기업<span>.</span>
                </p>
             </motion.div>
 

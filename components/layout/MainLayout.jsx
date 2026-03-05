@@ -151,11 +151,9 @@ export default function MainLayout({ children }) {
              
              {/* Social & Util */}
              <div className="flex items-center gap-6 mt-6 md:mt-0 text-white/70">
-                <a href="#" className="hover:text-white transition-colors"><Linkedin size={20} /></a>
-                <a href="#" className="hover:text-white transition-colors"><Twitter size={20} /></a>
-                <a href="#" className="hover:text-white transition-colors"><Facebook size={20} /></a>
-                <a href="#" className="hover:text-white transition-colors"><Youtube size={20} /></a>
-                <a href="#" className="hover:text-white transition-colors"><Instagram size={20} /></a>
+                <a href="https://www.facebook.com/profile.php?id=61586143769790&locale=ko_KR" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors"><Facebook size={20} /></a>
+                <a href="https://www.youtube.com/@fnsolution" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors"><Youtube size={20} /></a>
+                <a href="https://www.instagram.com/fnsolution_official/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors"><Instagram size={20} /></a>
              </div>
           </div>
 

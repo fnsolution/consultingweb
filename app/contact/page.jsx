@@ -290,7 +290,7 @@ export default function ContactPage() {
 
                     <div className="flex items-center gap-6">
                         <Mail className="w-6 h-6 text-white" />
-                        <p className="drop-shadow-md">contact@fnsolution.com</p>
+                        <p className="drop-shadow-md">gkies@hanmail.net</p>
                     </div>
                 </div>
 
