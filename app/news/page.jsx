@@ -55,7 +55,7 @@ export default function NewsPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
             >
-                NEWSROOM<span className="text-[#ff3333]">.</span>
+                INFO<span className="text-[#ff3333]">.</span>
             </motion.h1>
              <motion.div 
                 className="mt-6 w-16 h-1 bg-[#ff3333] mx-auto"
