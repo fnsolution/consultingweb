@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Award, BookOpen, TrendingUp, Handshake, ChevronDown } from "lucide-react";
 import { db } from "../../lib/firebase";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
@@ -14,6 +14,8 @@ export default function CareerPage() {
     region: ""
   });
   const [status, setStatus] = useState("idle");
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const regions = ["서울 본사", "대구 지사", "당진 지사", "광주 1지사", "광주 2지사"];
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -104,23 +106,49 @@ export default function CareerPage() {
                     
                     <div className="space-y-2 relative">
                         <label className="text-[10px] font-bold text-gray-500 uppercase tracking-widest block">지원 지사 (Region) *</label>
-                        <select 
-                            name="region"
-                            value={formData.region}
-                            onChange={handleChange}
-                            required
-                            className="w-full border-b border-gray-200 bg-transparent py-2.5 text-base text-black focus:outline-none focus:border-black transition-colors rounded-none appearance-none cursor-pointer"
+                        <div 
+                            onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                            className={`w-full border-b py-2.5 text-base cursor-pointer flex justify-between items-center transition-colors ${formData.region === "" ? "border-gray-200 text-gray-400" : "border-black text-black"} ${isDropdownOpen ? "border-black" : ""}`}
                         >
-                            <option value="" disabled className="text-gray-500">지사 선택</option>
-                            <option value="서울 본사" className="text-black">서울 본사</option>
-                            <option value="대구 지사" className="text-black">대구 지사</option>
-                            <option value="당진 지사" className="text-black">당진 지사</option>
-                            <option value="광주 1지사" className="text-black">광주 1지사</option>
-                            <option value="광주 2지사" className="text-black">광주 2지사</option>
-                        </select>
-                        <div className="pointer-events-none absolute inset-y-0 right-0 top-6 flex items-center text-gray-400">
-                            <ChevronDown className="w-4 h-4" />
+                            <span className="truncate">{formData.region || "지사 선택"}</span>
+                            <ChevronDown className={`w-4 h-4 text-gray-400 transition-transform duration-300 flex-shrink-0 ${isDropdownOpen ? "rotate-180 text-black" : ""}`} />
                         </div>
+                        
+                        <AnimatePresence>
+                           {isDropdownOpen && (
+                              <motion.div
+                                 initial={{ opacity: 0, y: -5 }}
+                                 animate={{ opacity: 1, y: 0 }}
+                                 exit={{ opacity: 0, y: -5 }}
+                                 transition={{ duration: 0.2 }}
+                                 className="absolute z-50 w-full mt-1 bg-white border border-gray-200 shadow-xl max-h-60 overflow-y-auto"
+                              >
+                                 {regions.map((region) => (
+                                    <div
+                                       key={region}
+                                       onClick={() => {
+                                          setFormData(prev => ({ ...prev, region }));
+                                          setIsDropdownOpen(false);
+                                       }}
+                                       className="px-4 py-3 text-black hover:bg-gray-100 cursor-pointer transition-colors text-sm"
+                                    >
+                                       {region}
+                                    </div>
+                                 ))}
+                              </motion.div>
+                           )}
+                        </AnimatePresence>
+                        
+                        {/* 필수 입력 처리를 위한 숨김 입력창 */}
+                        <input 
+                           type="text" 
+                           name="region" 
+                           value={formData.region}
+                           onChange={handleChange}
+                           required
+                           className="opacity-0 absolute w-0 h-0 pointer-events-none"
+                           tabIndex={-1}
+                        />
                     </div>
                 </div>
 
