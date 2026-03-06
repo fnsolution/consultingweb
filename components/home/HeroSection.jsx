@@ -103,7 +103,7 @@ export default function HeroSection() {
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-              className="flex items-center justify-center lg:justify-end"
+              className="flex items-center justify-center lg:justify-end lg:translate-y-40"
             >
                <div className="w-full max-w-md">
                   <h3 className="text-white text-2xl md:text-3xl font-bold mb-8">

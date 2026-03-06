@@ -61,9 +61,9 @@ export default function NewsDetailPage() {
           <img 
             src={news.image} 
             alt={news.title} 
-            className="w-full h-full object-cover opacity-80"
+            className="w-full h-full object-cover opacity-100"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
         </motion.div>
         
         <div className="relative z-10 w-full max-w-5xl mx-auto px-6 md:px-12 text-left">

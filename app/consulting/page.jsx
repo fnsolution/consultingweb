@@ -74,9 +74,9 @@ export default function ConsultingPage() {
              <img 
                 src="https://static.wixstatic.com/media/06807f543ae74ede885ea9d5f2c32ac0.jpg/v1/crop/x_0,y_207,w_3500,h_1920/fill/w_3500,h_824,al_c,q_90,enc_avif,quality_auto/%ED%98%84%EB%8C%80%20%EA%B5%AC%EC%A1%B0%20.jpg" 
                 alt="Consulting Hero" 
-                className="w-full h-full object-cover opacity-60 grayscale-[20%] mix-blend-luminosity"
+                className="w-full h-full object-cover opacity-80 grayscale-[10%]"
              />
-             <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/30 to-black/80"></div>
+             <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/10 to-black/50"></div>
         </div>
         
         <div className="relative z-10 text-center mt-6 md:mt-12">

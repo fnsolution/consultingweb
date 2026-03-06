@@ -43,9 +43,9 @@ export default function NewsPage() {
              <img 
                 src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=2670&auto=format&fit=crop" 
                 alt="News Hero" 
-                className="w-full h-full object-cover opacity-60"
+                className="w-full h-full object-cover opacity-80"
              />
-             <div className="absolute inset-0 bg-black/50"></div>
+             <div className="absolute inset-0 bg-black/20"></div>
         </div>
         
         <div className="relative z-10 text-center">

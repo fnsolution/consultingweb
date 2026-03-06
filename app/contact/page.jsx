@@ -58,9 +58,9 @@ export default function ContactPage() {
          <img 
             src="https://images.unsplash.com/photo-1698051936010-414c70a35588?q=80&w=2370&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
             alt="Global Contact Background" 
-            className="w-full h-full object-cover opacity-60 grayscale hover:grayscale-0 transition-all duration-700 ease-out"
+            className="w-full h-full object-cover opacity-80 grayscale hover:grayscale-0 transition-all duration-700 ease-out"
          />
-         <div className="absolute inset-0 bg-black/40"></div>
+         <div className="absolute inset-0 bg-black/20"></div>
       </div>
 
       <div className="relative z-10 w-full flex flex-col">
