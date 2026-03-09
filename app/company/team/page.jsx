@@ -46,6 +46,13 @@ const teamMembers = [
     desc: "최적화된 포트폴리오 전략 수립"
   },
   {
+    name: "김수철",
+    role: "광주지사장",
+    englishName: "Kim Soo Chul",
+    image: "/증명사진_김수철.png",
+    desc: "고객 맞춤형 재무 솔루션 제공"
+  },
+  {
     name: "김원우",
     role: "팀장",
     englishName: "Kim Won Woo",
