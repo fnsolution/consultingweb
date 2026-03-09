@@ -52,6 +52,13 @@ const teamMembers = [
     image: "/증명사진_김수철.png",
     desc: "고객 맞춤형 재무 솔루션 제공"
   },
+    {
+    name: "박요한",
+    role: "팀장",
+    englishName: "Park Yo Han",
+    image: "/증명사진_박요한.png",
+    desc: "개인 및 기업 맞춤형 재무 솔루션 제공"
+  },
   {
     name: "김원우",
     role: "팀장",
@@ -87,13 +94,6 @@ const teamMembers = [
     image: "/증명사진_박상수.jpeg",
     desc: "안정적인 현금흐름 창출 전략 제공"
   },
-  {
-    name: "박요한",
-    role: "팀장",
-    englishName: "Park Yo Han",
-    image: "/증명사진_박요한.png",
-    desc: "개인 및 기업 맞춤형 재무 솔루션 제공"
-  }
 ];
 
 export default function TeamPage() {

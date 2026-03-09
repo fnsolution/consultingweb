@@ -45,6 +45,12 @@ const experts = [
     position: "광주지사장",
     image: "/증명사진_김수철.png",
   },
+    {
+    name: "박요한",
+    englishName: "Park Yo Han",
+    position: "팀장",
+    image: "/증명사진_박요한.png",
+  },
   {
     name: "김원우",
     englishName: "Kim Won Woo",
@@ -75,12 +81,6 @@ const experts = [
     position: "팀장",
     image: "/증명사진_박상수.jpeg",
   },
-  {
-    name: "박요한",
-    englishName: "Park Yo Han",
-    position: "팀장",
-    image: "/증명사진_박요한.png",
-  }
 ];
 
 export default function ExpertSlide() {
