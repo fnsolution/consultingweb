@@ -37,13 +37,13 @@ const experts = [
   {
     name: "구미숙",
     englishName: "Ku Mi Sook",
-    position: "광주지사장",
+    position: "광주1지사장",
     image: "/증명사진_구미숙.png",
   },
   {
     name: "김수철",
     englishName: "Kim Soo Chul",
-    position: "광주지사장",
+    position: "광주2지사장",
     image: "/증명사진_김수철.png",
   },
     {
