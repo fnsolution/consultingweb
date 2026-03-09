@@ -37,7 +37,8 @@ const historyData = [
 
 function Counter({ value, suffix }) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const marginStr = typeof window !== "undefined" && window.innerWidth < 768 ? "0px" : "-100px";
+  const isInView = useInView(ref, { once: true, margin: marginStr });
   const springValue = useSpring(0, { bounce: 0, duration: 2000 });
   const rounded = useTransform(springValue, (latest) => Math.floor(latest));
   const [displayValue, setDisplayValue] = useState(0);
@@ -112,7 +113,7 @@ export default function StatsBoard() {
                    className="flex items-baseline"
                    initial={{ opacity: 0, x: -100, rotate: -3 }}
                    whileInView={{ opacity: 1, x: 0, rotate: 0 }}
-                   viewport={{ once: true, margin: "-100px" }}
+                   viewport={{ once: true, margin: typeof window !== "undefined" && window.innerWidth < 768 ? "0px" : "-100px" }}
                    transition={{ 
                      duration: 0.8, 
                      delay: index * 0.15,

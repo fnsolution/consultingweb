@@ -24,7 +24,7 @@ export default function MainLayout({ children }) {
   return (
     <div className="min-h-screen flex flex-col font-sans">
       <header className={headerClass}>
-        <div className="w-full px-4 sm:px-8 md:px-12 lg:px-26">
+        <div className="w-full px-4 sm:px-8 md:px-12 lg:px-26 relative z-50">
           <div className="flex justify-between items-center h-24">
             {/* Logo */}
             <div className="flex-shrink-0 flex items-center">
@@ -123,8 +123,8 @@ export default function MainLayout({ children }) {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className={`md:hidden ${mobileMenuBg} border-b border-white/10 absolute w-full top-24 left-0`}>
-            <div className="px-6 pt-4 pb-8 flex flex-col">
+          <div className={`md:hidden ${mobileMenuBg} fixed inset-0 z-40 w-full h-[100dvh] pt-24 overflow-y-auto`}>
+            <div className="px-6 pt-4 pb-8 flex flex-col min-h-full">
               <MobileNavLink href="/company" onClick={toggleMenu}>COMPANY (회사 소개)</MobileNavLink>
               <MobileNavLink href="/consulting" onClick={toggleMenu}>CONSULTING (컨설팅)</MobileNavLink>
               <MobileNavLink href="/news" onClick={toggleMenu}>INFO (새소식)</MobileNavLink>

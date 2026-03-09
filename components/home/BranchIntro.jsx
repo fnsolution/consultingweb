@@ -5,28 +5,28 @@ const branches = [
   {
     name: "대구지사",
     manager: "심현용 지사장",
-    address: "경북 청도군 화양읍 연지로 240, 2층",
+    address: "대구 중구 태평로 160 5층",
     image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop",
     className: "md:col-span-1 md:row-span-2 h-[400px] md:h-full", // Tall vertical
   },
   {
     name: "광주1지사",
     manager: "구미숙 지사장",
-    address: "광주광역시 (상세 주소 업데이트 예정)",
+    address: "광주 동구 중앙로 358 2층",
     image: "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop",
     className: "md:col-span-2 h-[250px]", // Wide horizontal
   },
   {
     name: "광주2지사",
     manager: "김수철 지사장",
-    address: "광주광역시 (상세 주소 업데이트 예정)",
+    address: "광주 광산구 왕버들로 11 2층",
     image: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=2069&auto=format&fit=crop",
     className: "md:col-span-1 h-[250px]", // Standard square
   },
   {
     name: "당진지사",
     manager: "이종혁 지사장",
-    address: "충남 당진시 (상세 주소 업데이트 예정)",
+    address: "충남 당진시 무수동로 256 2층",
     image: "https://images.unsplash.com/photo-1464938050520-ef2270bb8ce8?q=80&w=2074&auto=format&fit=crop",
     className: "md:col-span-1 h-[250px]", // Standard square
   },

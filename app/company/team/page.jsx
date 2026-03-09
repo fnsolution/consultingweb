@@ -37,6 +37,55 @@ const teamMembers = [
     englishName: "Sim Hyun Yong",
     image: "/증명사진_심현용.png",
     desc: "신뢰를 바탕으로 한 지속적인 파트너십"
+  },
+  {
+    name: "구미숙",
+    role: "광주지사장",
+    englishName: "Ku Mi Sook",
+    image: "/증명사진_구미숙.png",
+    desc: "최적화된 포트폴리오 전략 수립"
+  },
+  {
+    name: "김원우",
+    role: "팀장",
+    englishName: "Kim Won Woo",
+    image: "/증명사진_김원우.jpeg",
+    desc: "체계적인 위험 관리 및 자산 보호"
+  },
+  {
+    name: "강지훈",
+    role: "팀장",
+    englishName: "Kang Ji Hoon",
+    image: "/증명사진_강지훈.png",
+    desc: "고객 생애주기 맞춤 재무 설계"
+  },
+  {
+    name: "박규하",
+    role: "팀장",
+    englishName: "Park Kyu Ha",
+    image: "/증명사진_박규하.jpeg",
+    desc: "기업 및 개인 세무 컨설팅 전문"
+  },
+  {
+    name: "조규상",
+    role: "팀장",
+    englishName: "Cho Kyu Sang",
+    image: "/증명사진_조규상.jpeg",
+    desc: "성공적인 자산 증식을 위한 비전 제시"
+  },
+  {
+    name: "박상수",
+    role: "팀장",
+    englishName: "Park Sang Soo",
+    image: "/증명사진_박상수.jpeg",
+    desc: "안정적인 현금흐름 창출 전략 제공"
+  },
+  {
+    name: "박요한",
+    role: "팀장",
+    englishName: "Park Yo Han",
+    image: "/증명사진_박요한.png",
+    desc: "개인 및 기업 맞춤형 재무 솔루션 제공"
   }
 ];
 

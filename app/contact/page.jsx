@@ -226,7 +226,7 @@ export default function ContactPage() {
 
                     <div className="space-y-1 pt-4">
                         <div className="flex items-center gap-2 mb-2">
-                            <label className="text-[11px] font-bold text-gray-400 uppercase tracking-widest">I agree to receive communications</label>
+                            <label className="text-[11px] font-bold text-gray-400 uppercase tracking-widest">개인정보 수집 및 이용에 동의합니다</label>
                             <input type="checkbox" className="accent-black w-3.5 h-3.5" required />
                         </div>
                     </div>
@@ -236,7 +236,7 @@ export default function ContactPage() {
                         disabled={status === "submitting"}
                         className="bg-black text-white px-8 py-3.5 text-xs font-bold uppercase tracking-[0.2em] hover:bg-[#ff3333] transition-colors duration-300 transform hover:translate-y-[-2px] disabled:opacity-50 disabled:cursor-not-allowed w-full md:w-auto mt-2"
                     >
-                        {status === "submitting" ? "Sending..." : "Submit"}
+                        {status === "submitting" ? "전송 중..." : "상담신청"}
                     </button>
 
                     {status === "success" && (

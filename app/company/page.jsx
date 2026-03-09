@@ -91,7 +91,7 @@ export default function CompanyPage() {
                       <img 
                           src="/증명사진_대표님.png" 
                           alt="CEO Ahn Tae Gun" 
-                          className="w-full h-full object-cover object-top" 
+                          className="w-full h-full object-contain" 
                       />
                    </div>
                    <div className="w-full flex flex-col pt-4 border-t border-white/20">

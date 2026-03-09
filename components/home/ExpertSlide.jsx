@@ -32,6 +32,48 @@ const experts = [
     englishName: "Sim Hyun Yong",
     position: "대구지사장",
     image: "/증명사진_심현용.png",
+  },
+  {
+    name: "구미숙",
+    englishName: "Ku Mi Sook",
+    position: "광주지사장",
+    image: "/증명사진_구미숙.png",
+  },
+  {
+    name: "김원우",
+    englishName: "Kim Won Woo",
+    position: "팀장",
+    image: "/증명사진_김원우.jpeg",
+  },
+  {
+    name: "강지훈",
+    englishName: "Kang Ji Hoon",
+    position: "팀장",
+    image: "/증명사진_강지훈.png",
+  },
+  {
+    name: "박규하",
+    englishName: "Park Kyu Ha",
+    position: "팀장",
+    image: "/증명사진_박규하.jpeg",
+  },
+  {
+    name: "조규상",
+    englishName: "Cho Kyu Sang",
+    position: "팀장",
+    image: "/증명사진_조규상.jpeg",
+  },
+  {
+    name: "박상수",
+    englishName: "Park Sang Soo",
+    position: "팀장",
+    image: "/증명사진_박상수.jpeg",
+  },
+  {
+    name: "박요한",
+    englishName: "Park Yo Han",
+    position: "팀장",
+    image: "/증명사진_박요한.png",
   }
 ];
 
