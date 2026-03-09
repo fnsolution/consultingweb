@@ -111,7 +111,7 @@ export default function ExpertSlide() {
 
       {/* Main Container - Full Width Content but Aligned */}
       <motion.div 
-        className="relative w-full max-w-6xl h-[450px] overflow-visible"
+        className="relative w-full max-w-6xl h-[600px] md:h-[450px] overflow-visible"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
@@ -129,35 +129,35 @@ export default function ExpertSlide() {
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -50 }}
                   transition={{ duration: 0.8, ease: "easeOut" }}
-                  className="absolute top-[5%] left-[-2%] z-0 select-none pointer-events-none"
+                  className="absolute top-2 md:top-[5%] left-6 md:left-[-2%] z-0 select-none pointer-events-none"
                 >
-                  <span className="text-[120px] font-serif font-bold text-white/[0.2] leading-none">
+                  <span className="text-[100px] md:text-[120px] font-serif font-bold text-white/[0.2] leading-none">
                     {String(index + 1).padStart(2, '0')}
                   </span>
                 </motion.div>
 
                 {/* Content Grid (Layer 10) */}
-                <div className="absolute inset-0 grid grid-cols-12 h-full w-full pointer-events-none">
+                <div className="absolute inset-0 flex flex-col md:grid md:grid-cols-12 h-full w-full pointer-events-none pt-12 md:pt-0">
                     
                     {/* Left Content: Text - Top to Bottom */}
-                    <div className="col-span-12 md:col-span-5 relative h-full flex flex-col justify-center pl-4 md:pl-0 z-20 pointer-events-auto">
+                    <div className="w-full md:col-span-5 relative h-auto md:h-full flex flex-col justify-center pl-8 md:pl-0 z-20 pointer-events-auto mb-8 md:mb-0">
                        <motion.div
                          initial={{ opacity: 0, y: -30 }}
                          animate={{ opacity: 1, y: 0 }}
                          exit={{ opacity: 0, y: 30 }}
                          transition={{ delay: 0.1, duration: 0.5, ease: "easeOut" }}
                        >
-                          <h3 className="text-sm font-bold tracking-[0.1em] text-[#ff3333] mb-3 font-sans">
+                          <h3 className="text-sm font-bold tracking-[0.1em] text-[#ff3333] mb-2 md:mb-3 font-sans mt-2 md:mt-0">
                             {expert.position}
                           </h3>
                           
                           {/* Korean Name Only - Sans Serif (Pretendard) */}
-                          <h2 className="text-5xl md:text-6xl font-bold text-white font-sans leading-tight mb-6 break-keep">
+                          <h2 className="text-4xl md:text-6xl font-bold text-white font-sans leading-tight mb-4 md:mb-6 break-keep">
                             {expert.name}
                           </h2>
                           
                           <div className="flex items-center gap-4">
-                              <button className="text-xs font-bold uppercase tracking-widest text-white/80 border-b border-white/50 pb-1 hover:text-white hover:border-white transition-all duration-300 font-sans">
+                              <button className="text-xs font-bold uppercase tracking-widest text-white/80 border-b border-white/50 pb-1 hover:text-white hover:border-white transition-all duration-300 font-sans mt-2 md:mt-0">
                                  View Profile
                               </button>
                           </div>
@@ -165,13 +165,13 @@ export default function ExpertSlide() {
                     </div>
 
                     {/* Middle Content: Main Image - Horizontal Slide */}
-                    <div className="col-span-12 md:col-span-4 relative h-full flex items-center justify-center z-10">
+                    <div className="flex-1 md:h-full md:col-span-4 relative flex items-start md:items-center justify-center z-10 w-full px-4 md:px-0">
                        <motion.div
                           initial={{ opacity: 0, x: 50 }}
                           animate={{ opacity: 1, x: 0 }}
                           exit={{ opacity: 0, x: -50 }}
                           transition={{ duration: 0.6, ease: "easeInOut" }}
-                          className="relative w-[280px] h-[380px] shadow-2xl pointer-events-auto"
+                          className="relative w-[230px] h-[310px] sm:w-[260px] sm:h-[350px] md:w-[280px] md:h-[380px] shadow-2xl pointer-events-auto mx-auto mt-2 md:mt-0"
                        >
                           <img 
                             src={expert.image} 
@@ -197,7 +197,7 @@ export default function ExpertSlide() {
                 </div>
 
                 {/* Progress Indicator - Align with Left Text */}
-                <div className="absolute bottom-4 left-0 z-30 pointer-events-auto text-white/80 font-bold tracking-widest text-sm font-sans">
+                <div className="absolute bottom-4 left-8 md:left-0 z-30 pointer-events-auto text-white/80 font-bold tracking-widest text-sm font-sans">
                    <span className="text-white">{currentIndex + 1}</span> <span className="text-white/40 mx-1">/</span> {experts.length}
                 </div>
 
