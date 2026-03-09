@@ -130,7 +130,7 @@ export default function StatsBoard() {
                     <div className="flex items-baseline">
                        {/* Huge Number with Bounce */}
                        <motion.span 
-                         className="text-7xl md:text-8xl font-black text-gray-900 tracking-tighter leading-none"
+                         className="text-5xl sm:text-6xl md:text-8xl font-black text-gray-900 tracking-tighter leading-none"
                          initial={{ scale: 0.5, opacity: 0 }}
                          whileInView={{ scale: 1, opacity: 1 }}
                          viewport={{ once: true }}
@@ -147,7 +147,7 @@ export default function StatsBoard() {
                        
                        {/* Plus Sign & Label group with Slide */}
                        <motion.div 
-                         className="ml-6 flex items-baseline"
+                         className="ml-2 sm:ml-4 md:ml-6 flex items-baseline"
                          initial={{ opacity: 0, y: 20 }}
                          whileInView={{ opacity: 1, y: 0 }}
                          viewport={{ once: true }}
@@ -156,10 +156,10 @@ export default function StatsBoard() {
                            delay: index * 0.15 + 0.4 
                          }}
                        >
-                          <span className="text-4xl md:text-5xl font-black text-black mr-4">
+                          <span className="text-3xl sm:text-4xl md:text-5xl font-black text-black mr-2 sm:mr-4">
                              {stat.suffix}
                           </span>
-                          <span className="text-lg md:text-xl text-gray-500 font-medium">
+                          <span className="text-sm sm:text-lg md:text-xl text-gray-500 font-medium whitespace-nowrap">
                              {stat.label}
                           </span>
                        </motion.div>
