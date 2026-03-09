@@ -129,7 +129,7 @@ export default function ExpertSlide() {
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -50 }}
                   transition={{ duration: 0.8, ease: "easeOut" }}
-                  className="absolute top-2 md:top-[5%] left-6 md:left-[-2%] z-0 select-none pointer-events-none"
+                  className="absolute top-2 md:top-[5%] left-12 md:left-[-2%] z-0 select-none pointer-events-none"
                 >
                   <span className="text-[100px] md:text-[120px] font-serif font-bold text-white/[0.2] leading-none">
                     {String(index + 1).padStart(2, '0')}
