@@ -196,14 +196,9 @@ export default function ExpertSlide() {
                     </div>
                 </div>
 
-                {/* Progress Bar - Align with Left Text */}
-                <div className="absolute bottom-4 left-0 flex gap-2 z-30 pointer-events-auto">
-                   {experts.map((_, idx) => (
-                      <div 
-                        key={idx}
-                        className={`h-[2px] w-10 transition-colors duration-300 ${idx === currentIndex ? 'bg-[#ff3333]' : 'bg-white/10'}`}
-                      />
-                   ))}
+                {/* Progress Indicator - Align with Left Text */}
+                <div className="absolute bottom-4 left-0 z-30 pointer-events-auto text-white/80 font-bold tracking-widest text-sm font-sans">
+                   <span className="text-white">{currentIndex + 1}</span> <span className="text-white/40 mx-1">/</span> {experts.length}
                 </div>
 
               </div>
