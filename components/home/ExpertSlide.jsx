@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
 
 const experts = [
   {
@@ -163,9 +164,9 @@ export default function ExpertSlide() {
                           </h2>
                           
                           <div className="flex items-center gap-4">
-                              <button className="text-xs font-bold uppercase tracking-widest text-white/80 border-b border-white/50 pb-1 hover:text-white hover:border-white transition-all duration-300 font-sans mt-2 md:mt-0">
+                              <Link href="/company/team" className="text-xs font-bold uppercase tracking-widest text-white/80 border-b border-white/50 pb-1 hover:text-white hover:border-white transition-all duration-300 font-sans mt-2 md:mt-0">
                                  View Profile
-                              </button>
+                              </Link>
                           </div>
                        </motion.div>
                     </div>
