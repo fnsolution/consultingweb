@@ -11,14 +11,14 @@ const branches = [
   },
   {
     name: "광주1지사",
-    manager: "구미숙 지사장",
+    manager: "구미숙 광주1 지사장",
     address: "광주 동구 중앙로 358 2층",
     image: "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop",
     className: "md:col-span-2 h-[300px] md:h-full", // Wide horizontal
   },
   {
     name: "광주2지사",
-    manager: "김수철 지사장",
+    manager: "김수철 광주2 지사장",
     address: "광주 광산구 왕버들로 11 2층",
     image: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=2069&auto=format&fit=crop",
     className: "md:col-span-1 h-[300px] md:h-full", // Standard square

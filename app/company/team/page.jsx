@@ -40,14 +40,14 @@ const teamMembers = [
   },
   {
     name: "구미숙",
-    role: "광주지사장",
+    role: "광주1지사장",
     englishName: "Ku Mi Sook",
     image: "/증명사진_구미숙.png",
     desc: "최적화된 포트폴리오 전략 수립"
   },
   {
     name: "김수철",
-    role: "광주지사장",
+    role: "광주2지사장",
     englishName: "Kim Soo Chul",
     image: "/증명사진_김수철.png",
     desc: "고객 맞춤형 재무 솔루션 제공"
