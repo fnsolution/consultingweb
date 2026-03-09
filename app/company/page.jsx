@@ -112,22 +112,47 @@ export default function CompanyPage() {
                 >                  
                   <div className="text-gray-300 leading-relaxed md:leading-[1.9] space-y-6 text-[15px] font-light md:text-[16px] xl:text-[17px] tracking-wide break-keep">
                     <p>
-                      당사는 <strong className="text-white font-medium">선진화된 재무 설계</strong>를 통한 사회 기여를 설립 목적으로 하며 일관된 <strong className="text-white font-medium">자율성과 상호 배려</strong> 속에서 인간존중의 가치를 실현하고자 합니다. 당사는 개인 및 중소기업에게 종합 컨설팅을 제공하고 있으며, 개인 재무설계 및 은퇴설계, 기업 재무 설계 및 위험 설계를 통한 <strong className="text-white font-medium">사회의 안전성 향상과 지속 가능한 상호 발전</strong>을 중점으로 하고 있습니다.
+                      안녕하십니까.<br/>
+                      FN Solution 대표이사 안태건입니다.
                     </p>
                     <p>
-                      당사는 자산관리전문가들이 상품판매만을 목적에 두지 않고 <strong className="text-white font-medium">엄선된 정보와 객관적인 사실</strong>에 기초하여 고객님의 특별한 개별상황에 맞추어 포트폴리오 <strong className="text-white font-medium">수정, 계획, 실행, 모니터링</strong>에 도움을 드릴 것입니다.
+                      저희 FN Solution의 철학은 분명합니다.<br/>
+                      바로 “금융보국(金融報國)”, 금융으로 국가와 국민에게 기여한다는 신념입니다.
                     </p>
                     <p>
-                      이러한 자산관리시스템은 미국과 유럽 등 금융선진국들은 이미 십수년전부터 진행되어온 금융선진시스템이며 우리나라도 점차 확산될 것으로 기대되고 있습니다.
+                      금융은 단순한 돈의 흐름이 아니라 기업의 성장과 개인의 미래를 결정하는 힘이라고 생각합니다. 건강한 금융과 올바른 재무 전략이 기업을 성장시키고, 기업의 성장은 결국 국가 경제의 발전으로 이어집니다. 이러한 믿음 속에서 FN Solution은 고객의 성공을 넘어 경제와 사회에 긍정적인 가치를 만들어가는 금융 파트너가 되고자 합니다.
                     </p>
                     <p>
-                      자산관리의 필요성은 현재 그 중요성이 어느 때보다 대두되고 있습니다. 저금리의 지속과 정보의 홍수속, 고세율 정책에서 자산을 지키기가 점점 어려워지고 있기 때문입니다. 특히 금융정보가 쏟아져 나오는 정보홍수의 시대에 <strong className="text-white font-medium">전문지식 없는 투자는 결국 고객님들의 자산손실</strong>을 불러오고 있습니다. 당사는 고객별 성향에 따른 맞춤식 재무설계로 고객님의 <strong className="text-white font-medium">목적자금을 달성</strong>하는데 큰 기여를 할 것입니다.
+                      오늘날 기업 환경과 금융 시장은 매우 빠르게 변화하고 있습니다. 이러한 시대일수록 정확한 분석과 전략적인 재무 설계, 그리고 실행력 있는 경영 시스템이 무엇보다 중요합니다.
                     </p>
                     <p>
-                      현재 당사는 고객과 임직원분들을 돕는 자산관리회사로서 힘찬 도약을 하고 있습니다. 뉴 노멀로 불리는 장기 저성장 시대의 문턱에서 <strong className="text-white font-medium">리스크 매니지먼트와 과감한 도전</strong>을 통해 새로운 성장 기회를 찾아가고 있습니다.
+                      FN Solution은 단순한 컨설팅 회사가 아닙니다.<br/>
+                      우리는 기업의 경쟁력을 높이고, 개인의 자산을 성장시키는 전략을 설계하는 전문 파트너입니다.
+                    </p>
+                    <p>
+                      기업에는 체계적인 경영 컨설팅과 재무 전략을 통해 지속 가능한 성장을 지원하고, 개인에게는 안정적인 자산 관리와 미래 설계를 통해 보다 탄탄한 삶의 기반을 만들어 드리고 있습니다.
+                    </p>
+                    <p>
+                      저희는 다음 세 가지 가치를 가장 중요하게 생각합니다.
+                    </p>
+                    <p>
+                      <strong className="text-white font-medium">첫째, 신뢰입니다.</strong><br/>
+                      금융과 컨설팅의 기본은 신뢰이며, 고객과의 신뢰는 무엇과도 바꿀 수 없는 자산입니다.
+                    </p>
+                    <p>
+                      <strong className="text-white font-medium">둘째, 전문성입니다.</strong><br/>
+                      철저한 분석과 축적된 경험을 바탕으로 실질적인 해결책을 제시합니다.
+                    </p>
+                    <p>
+                      <strong className="text-white font-medium">셋째, 책임입니다.</strong><br/>
+                      고객의 미래를 함께 설계한다는 마음으로 끝까지 책임지는 파트너가 되겠습니다.
+                    </p>
+                    <p>
+                      앞으로 FN Solution은 "금융으로 기업을 성장시키고, 금융으로 국가와 국민에게 기여한다”는 금융보국(金融報國)의 철학을 바탕으로 경영컨설팅과 재무설계 분야에서 신뢰받는 전문 기업으로 성장해 나가겠습니다.
                     </p>
                     <p className="pt-4 text-white font-medium text-lg">
-                      앞으로도 최선을 다하는 기업으로서 고객의 성공과 행복한 미래를 지원하겠습니다.
+                      고객의 성공이 곧 우리의 사명입니다.<br/>
+                      더 강한 기업, 더 안정된 자산, 더 건강한 경제를 만드는 금융 파트너가 되겠습니다.
                     </p>
                     <p className="pt-2 text-white">
                       감사합니다.
