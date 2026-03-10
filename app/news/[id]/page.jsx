@@ -108,7 +108,18 @@ export default function NewsDetailPage() {
             <div className="text-gray-800 leading-loose space-y-8">
               {/* If actual content formatting exists, it would be injected here.  */}
               <p className="whitespace-pre-wrap">
-                {news.content || "상세 내용이 준비 중입니다."}
+                {news.content ? (
+                  news.content.split(/(https?:\/\/[^\s]+)/g).map((part, index) => {
+                    if (part.match(/(https?:\/\/[^\s]+)/)) {
+                      return (
+                        <a key={index} href={part} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 decoration-1 hover:decoration-2 transition-all text-black">
+                          {part}
+                        </a>
+                      );
+                    }
+                    return part;
+                  })
+                ) : "상세 내용이 준비 중입니다."}
               </p>
               
               <p>
