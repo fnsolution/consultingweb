@@ -1,14 +1,35 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import { db } from "../../lib/firebase";
 import { collection, query, orderBy, onSnapshot } from "firebase/firestore";
-import { useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 
 const categories = ["FN 공지", "추천사이트", "CEO 추천도서"];
+
+const tabMap = {
+  notice: "FN 공지",
+  site: "추천사이트",
+  book: "CEO 추천도서"
+};
+
+function TabUpdater({ setSelectedCategory }) {
+  const searchParams = useSearchParams();
+  const tab = searchParams.get("tab");
+
+  useEffect(() => {
+    if (tab && tabMap[tab]) {
+      setSelectedCategory(tabMap[tab]);
+    }
+  }, [tab, setSelectedCategory]);
+
+  return null;
+}
+
+
 
 export default function NewsPage() {
   const [selectedCategory, setSelectedCategory] = useState("FN 공지");
@@ -36,6 +57,9 @@ export default function NewsPage() {
 
   return (
     <div className="bg-white min-h-screen font-sans">
+      <Suspense fallback={null}>
+        <TabUpdater setSelectedCategory={setSelectedCategory} />
+      </Suspense>
       
       {/* HERO SECTION */}
       <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden bg-black">

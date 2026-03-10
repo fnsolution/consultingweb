@@ -93,13 +93,13 @@ export default function MainLayout({ children }) {
                   style={{ transition: "opacity 0.2s ease-out, transform 0.2s ease-out, visibility 0.2s ease-out" }}
                 >
                   <div className="flex flex-col py-2">
-                    <Link href="/news" className="text-white hover:bg-white/10 px-6 py-3 transition-colors text-sm font-bold tracking-wide text-center">
+                    <Link href="/news?tab=notice" className="text-white hover:bg-white/10 px-6 py-3 transition-colors text-sm font-bold tracking-wide text-center">
                       FN 공지
                     </Link>
-                    <Link href="/news" className="text-white hover:bg-white/10 px-6 py-3 transition-colors text-sm font-bold tracking-wide text-center">
+                    <Link href="/news?tab=site" className="text-white hover:bg-white/10 px-6 py-3 transition-colors text-sm font-bold tracking-wide text-center">
                       추천사이트
                     </Link>
-                    <Link href="/news" className="text-white hover:bg-white/10 px-6 py-3 transition-colors text-sm font-bold tracking-wide text-center">
+                    <Link href="/news?tab=book" className="text-white hover:bg-white/10 px-6 py-3 transition-colors text-sm font-bold tracking-wide text-center">
                       CEO 추천도서
                     </Link>
                   </div>
