@@ -53,17 +53,23 @@ export default function NewsDetailPage() {
       {/* Dynamic HERO SECTION */}
       <section className="relative h-[60vh] min-h-[500px] flex items-end justify-start overflow-hidden bg-black pb-20 pt-32">
         <motion.div 
-          className="absolute inset-0"
+          className="absolute inset-0 flex items-center justify-center"
           initial={{ scale: 1.1 }}
           animate={{ scale: 1 }}
           transition={{ duration: 1.5, ease: "easeOut" }}
         >
+          {/* Blurred Background Layer to fill empty space */}
+          <div 
+            className="absolute inset-0 bg-cover bg-center opacity-40 blur-xl"
+            style={{ backgroundImage: `url('${news.image}')` }}
+          />
+          {/* Actual Contained Image */}
           <img 
             src={news.image} 
             alt={news.title} 
-            className="w-full h-full object-cover opacity-100"
+            className="relative w-full h-full object-contain z-0"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/10 z-10"></div>
         </motion.div>
         
         <div className="relative z-10 w-full max-w-5xl mx-auto px-6 md:px-12 text-left">

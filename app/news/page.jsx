@@ -147,14 +147,19 @@ function NewsRow({ news, index }) {
             }`}
         >
             {/* Image Section - Fixed Aspect Ratio (16:9) to prevent vertical stretching */}
-            <Link href={`/news/${news.id}`} className="w-full md:w-7/12 relative aspect-[16/9] md:aspect-auto overflow-hidden block bg-gray-100">
+            <Link href={`/news/${news.id}`} className="w-full md:w-7/12 relative aspect-[16/9] overflow-hidden block bg-black flex items-center justify-center">
+                {/* Blurred Background Layer (Static) */}
+                <div 
+                  className="absolute inset-0 bg-cover bg-center blur-xs"
+                  style={{ backgroundImage: `url('${news.image}')` }}
+                />
+                
+                {/* Actual Image (Static) */}
                 <img 
                     src={news.image} 
                     alt={news.title} 
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                    className="relative w-full h-full object-contain z-10"
                 />
-                 {/* Mobile Overlay */}
-                <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors duration-500"></div>
             </Link>
 
             {/* Content Section - Narrower (5/12) */}
