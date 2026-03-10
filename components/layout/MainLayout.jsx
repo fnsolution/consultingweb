@@ -70,13 +70,13 @@ export default function MainLayout({ children }) {
                   style={{ transition: "opacity 0.2s ease-out, transform 0.2s ease-out, visibility 0.2s ease-out" }}
                 >
                   <div className="flex flex-col py-2">
-                    <Link href="/consulting#build" className="text-white hover:bg-white/10 px-6 py-3 transition-colors text-sm font-bold tracking-wide text-center">
+                    <Link href="/consulting?tab=build" className="text-white hover:bg-white/10 px-6 py-3 transition-colors text-sm font-bold tracking-wide text-center">
                       역량강화
                     </Link>
-                    <Link href="/consulting#grow" className="text-white hover:bg-white/10 px-6 py-3 transition-colors text-sm font-bold tracking-wide text-center">
+                    <Link href="/consulting?tab=grow" className="text-white hover:bg-white/10 px-6 py-3 transition-colors text-sm font-bold tracking-wide text-center">
                       성장지원
                     </Link>
-                    <Link href="/consulting#protect" className="text-white hover:bg-white/10 px-6 py-3 transition-colors text-sm font-bold tracking-wide text-center">
+                    <Link href="/consulting?tab=protect" className="text-white hover:bg-white/10 px-6 py-3 transition-colors text-sm font-bold tracking-wide text-center">
                       자산관리
                     </Link>
                   </div>

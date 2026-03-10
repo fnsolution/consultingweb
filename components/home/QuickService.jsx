@@ -8,21 +8,21 @@ export default function QuickService() {
     {
       title: ["역량강화"],
       sub: "기업 인증 및 운영 시스템 구축",
-      href: "/consulting#build",
+      href: "/consulting?tab=build",
       image: "https://eoncg0801.mycafe24.com/wp-content/uploads/2025/02/stragy.png",
       span: "lg:row-span-2 lg:col-span-1", // Large Left Block
     },
     {
       title: ["성장지원"],
       sub: "기업 성장 및 자본 조달 전략",
-      href: "/consulting#grow",
+      href: "/consulting?tab=grow",
       image: "https://eoncg0801.mycafe24.com/wp-content/uploads/2025/02/ORGANIZATION.png",
       span: "lg:col-span-1 lg:row-span-1", // Top Right
     },
     {
       title: ["자산관리"],
       sub: "재무 최적화 및 자산 승계 관리",
-      href: "/consulting#protect",
+      href: "/consulting?tab=protect",
       image: "https://eoncg0801.mycafe24.com/wp-content/uploads/2025/02/a_AdobeStock_301436805.jpeg",
       span: "lg:col-span-1 lg:row-span-1", // Bottom Right
     },

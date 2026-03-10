@@ -1,9 +1,23 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { useSearchParams } from "next/navigation";
+
+function TabUpdater({ setActiveTab }) {
+  const searchParams = useSearchParams();
+  const tab = searchParams.get("tab");
+
+  useEffect(() => {
+    if (tab && ['build', 'grow', 'protect'].includes(tab)) {
+      setActiveTab(tab);
+    }
+  }, [tab, setActiveTab]);
+
+  return null;
+}
 
 export default function ConsultingPage() {
   const [activeTab, setActiveTab] = useState("build");
@@ -67,6 +81,9 @@ export default function ConsultingPage() {
 
   return (
     <div className="bg-white min-h-screen text-black font-sans">
+      <Suspense fallback={null}>
+        <TabUpdater setActiveTab={setActiveTab} />
+      </Suspense>
       
       {/* HERO SECTION */}
       <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden bg-black">
