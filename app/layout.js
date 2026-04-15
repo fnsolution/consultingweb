@@ -35,6 +35,10 @@ export const metadata = {
     images: ["/logo-light.png"],
   },
   
+  icons: {
+    icon: "/fnsolutionlogo.png",
+    apple: "/fnsolutionlogo.png",
+  },
   // Additional metadata
   robots: {
     index: true,
